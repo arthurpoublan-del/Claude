@@ -93,6 +93,57 @@
   .tier-chip.t3 { color: var(--ink-dim); }
   .tier-chip.t4 { color: var(--warn); }
 
+  .ans-wrap { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
+  .ans-box {
+    width: 100%; min-height: 92px; resize: vertical;
+    background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 10px; padding: 11px 12px; font-size: 14.5px; line-height: 1.55;
+    font-family: inherit;
+  }
+  .ans-box:focus { outline: none; border-color: var(--accent-dim); }
+  .ans-box::placeholder { color: var(--ink-dim); }
+  .ans-actions { display: flex; gap: 8px; margin-top: 9px; }
+  .check-btn {
+    flex: 1; padding: 11px; border-radius: 10px; border: 1px solid var(--accent-dim);
+    background: rgba(63,182,138,0.10); color: var(--accent); font-size: 13.5px; font-weight: 650;
+  }
+  .check-btn:disabled { opacity: 0.5; }
+  .stop-btn {
+    padding: 11px 14px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink-dim); font-size: 13px; font-weight: 600;
+  }
+
+  .fb { margin-top: 14px; display: flex; flex-direction: column; gap: 12px; }
+  .fb-head { display: flex; align-items: center; gap: 9px; }
+  .fb-verdict {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 5px; border: 1px solid currentColor;
+  }
+  .fb-verdict.correct { color: var(--accent); }
+  .fb-verdict.partial { color: var(--warn); }
+  .fb-verdict.incorrect { color: var(--bad); }
+  .fb-score { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); }
+  .fb-group { }
+  .fb-label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase;
+    margin-bottom: 5px; display: flex; align-items: center; gap: 5px;
+  }
+  .fb-label.ok { color: var(--accent); }
+  .fb-label.gap { color: var(--warn); }
+  .fb-label.err { color: var(--bad); }
+  .fb-label.tip { color: var(--ink-dim); }
+  .fb-list { margin: 0; padding-left: 17px; display: flex; flex-direction: column; gap: 5px; }
+  .fb-list li { font-size: 13.5px; line-height: 1.5; color: #c3ccd3; }
+  .fb-text { font-size: 13.5px; line-height: 1.55; color: #c3ccd3; }
+  .fb-model {
+    font-size: 13.5px; line-height: 1.6; color: #c3ccd3;
+    background: var(--panel-2); border: 1px solid var(--line); border-left: 2px solid var(--accent-dim);
+    border-radius: 8px; padding: 11px 12px;
+  }
+  .fb-status { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); padding: 4px 0; }
+  .fb-err { font-size: 13px; line-height: 1.5; color: var(--bad); }
+  .grade-btn.suggested { border-color: currentColor; background: rgba(63,182,138,0.07); }
+
   .card-note {
     margin-top: 14px; padding: 10px 12px; border-radius: 8px;
     background: rgba(201,116,58,0.10); border: 1px solid rgba(201,116,58,0.35);
@@ -219,6 +270,19 @@
       <div class="card" id="cardEl">
         <div class="card-label">Question</div>
         <div class="q-text" id="qText"></div>
+
+        <div class="ans-wrap" id="ansWrap" style="display:none;">
+          <div class="card-label">Your answer</div>
+          <textarea class="ans-box" id="ansBox" placeholder="Say it the way you would in the room, then check it."></textarea>
+          <div class="ans-actions">
+            <button class="check-btn" id="checkBtn">Check my answer</button>
+            <button class="stop-btn" id="stopBtn" style="display:none;">Stop</button>
+          </div>
+          <div class="fb-status" id="fbStatus" style="display:none;"></div>
+          <div class="fb-err" id="fbErr" style="display:none;"></div>
+          <div class="fb" id="fbBox" style="display:none;"></div>
+        </div>
+
         <div class="a-wrap" id="aWrap" style="display:none;">
           <div class="card-label">Answer</div>
           <div class="a-text" id="aText"></div>
@@ -427,17 +491,24 @@
     }
     el('revealHint').style.display = 'block';
     el('selfGrade').style.display = 'none';
+    resetAnswerUI();
+    el('ansWrap').style.display = sample ? 'block' : 'none';
+    el('revealHint').textContent = sample
+      ? 'Tap the card to skip straight to the answer'
+      : 'Tap card to reveal answer';
     el('cardEl').scrollTop = 0;
     el('progressFill').style.width = ((idx) / deck.length * 100) + '%';
   }
 
-  el('cardEl').addEventListener('click', () => {
+  function revealAnswer() {
     if (revealed) return;
     revealed = true;
     el('aWrap').style.display = 'block';
     el('revealHint').style.display = 'none';
     el('selfGrade').style.display = 'flex';
-  });
+  }
+
+  el('cardEl').addEventListener('click', revealAnswer);
 
   function gradeAndAdvance(result) {
     const q = deck[idx];
@@ -537,6 +608,155 @@
     });
     document.getElementById('backToSetup').textContent = 'Back to sections';
   }
+
+  // ---- Answer checking (asks Claude; needs a connection) --------------------
+  // The drill itself is fully offline. This one feature is not: if Claude
+  // isn't reachable or the viewer declines, the box hides and self-grading
+  // carries on exactly as before.
+  let sample = null;
+  let gradeCtl = null;
+
+  const ERR_COPY = {
+    rate_limited: 'Too many checks in a row. Give it a minute and try again.',
+    session_expired: 'Your Claude session expired — reload the page and sign in again.',
+    upstream_error: 'That check didn’t get through. Try again.',
+    invalid_json: 'The feedback came back garbled. Try again.',
+    empty_completion: 'No feedback came back. Try rephrasing your answer.',
+    refused: 'Claude wouldn’t grade that one. Try rewording your answer.',
+    prompt_too_large: 'That answer is too long to check — tighten it up.',
+  };
+  const HIDE_CODES = ['not_granted','sampling_disabled','not_declared','capability_disabled','capability_removed'];
+
+  function resetAnswerUI() {
+    el('ansBox').value = '';
+    el('fbBox').style.display = 'none';
+    el('fbBox').innerHTML = '';
+    el('fbErr').style.display = 'none';
+    el('fbStatus').style.display = 'none';
+    el('checkBtn').disabled = false;
+    el('checkBtn').textContent = 'Check my answer';
+    el('stopBtn').style.display = 'none';
+    document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('suggested'));
+    if (gradeCtl) { gradeCtl.abort(); gradeCtl = null; }
+  }
+
+  function gradePrompt(q, answer) {
+    return [
+      'You are drilling an investment banking candidate on technical interview questions.',
+      'Grade their spoken-style answer against the reference answer below.',
+      '',
+      'How to grade:',
+      '- Judge SUBSTANCE, not wording. Never penalise different phrasing, ordering, shorthand or informal register.',
+      '- If they reach a correct result by a valid route the reference does not use, that is fully correct. Credit it.',
+      '- Only flag something as an error if it is actually financially wrong, not merely phrased differently or less completely.',
+      '- Be honest and calibrated. Do not inflate. A flattering grade is worthless to someone preparing for a real interview.',
+      '- Judge it as an interview answer: it should be tight and structured, roughly 30-60 seconds spoken.',
+      '',
+      'QUESTION:',
+      q.question,
+      '',
+      'REFERENCE ANSWER:',
+      q.answer,
+      '',
+      'CANDIDATE ANSWER:',
+      answer,
+      '',
+      'Reply with only a JSON object of this shape:',
+      '{"verdict":"correct"|"partial"|"incorrect","score":0-100,',
+      '"right":["what they actually got right, short phrases"],',
+      '"missed":["key points from the reference they left out"],',
+      '"errors":["anything they said that is genuinely wrong; empty array if none"],',
+      '"delivery":"one sentence on how it would land in the room - structure, length, confidence",',
+      '"model":"a tightened interview-ready answer, 2-4 sentences"}',
+    ].join('\n');
+  }
+
+  function renderFeedback(fb) {
+    const box = el('fbBox');
+    const verdict = ['correct','partial','incorrect'].includes(fb.verdict) ? fb.verdict : 'partial';
+    const score = Number.isFinite(fb.score) ? Math.round(fb.score) : null;
+    const arr = v => Array.isArray(v) ? v.filter(x => typeof x === 'string' && x.trim()) : [];
+    const list = (cls, label, items) => items.length
+      ? `<div class="fb-group"><div class="fb-label ${cls}">${label}</div>
+         <ul class="fb-list">${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>` : '';
+
+    box.innerHTML = `
+      <div class="fb-head">
+        <span class="fb-verdict ${verdict}">${verdict}</span>
+        ${score !== null ? `<span class="fb-score">${score}/100</span>` : ''}
+      </div>
+      ${list('ok','✓ Got right', arr(fb.right))}
+      ${list('gap','○ Missed', arr(fb.missed))}
+      ${list('err','✕ Wrong', arr(fb.errors))}
+      ${typeof fb.delivery === 'string' && fb.delivery.trim()
+        ? `<div class="fb-group"><div class="fb-label tip">Delivery</div><div class="fb-text">${esc(fb.delivery)}</div></div>` : ''}
+      ${typeof fb.model === 'string' && fb.model.trim()
+        ? `<div class="fb-group"><div class="fb-label tip">Stronger answer</div><div class="fb-model">${esc(fb.model)}</div></div>` : ''}
+    `;
+    box.style.display = 'flex';
+
+    // reveal the reference answer and nudge the self-grade that matches
+    revealAnswer();
+    const btn = verdict === 'correct' ? el('btnKnow') : el('btnDontKnow');
+    btn.classList.add('suggested');
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => (
+      { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]
+    ));
+  }
+
+  async function checkAnswer() {
+    const answer = el('ansBox').value.trim();
+    if (!answer) { el('ansBox').focus(); return; }
+    if (!sample) return;
+    const q = deck[idx];
+
+    el('fbBox').style.display = 'none';
+    el('fbErr').style.display = 'none';
+    el('fbStatus').style.display = 'block';
+    el('fbStatus').textContent = 'Grading…';
+    el('checkBtn').disabled = true;
+    el('stopBtn').style.display = 'block';
+
+    gradeCtl = new AbortController();
+    try {
+      const fb = await sample.json(gradePrompt(q, answer), { signal: gradeCtl.signal });
+      el('fbStatus').style.display = 'none';
+      renderFeedback(fb || {});
+      el('checkBtn').textContent = 'Check again';
+    } catch (e) {
+      el('fbStatus').style.display = 'none';
+      if (e && e.code === 'cancelled') {
+        // viewer pressed Stop — nothing to say
+      } else if (e && HIDE_CODES.includes(e.code)) {
+        el('ansWrap').style.display = 'none';
+        sample = null;
+      } else {
+        el('fbErr').textContent = (e && ERR_COPY[e.code]) || 'That check didn’t get through. Try again.';
+        el('fbErr').style.display = 'block';
+      }
+    } finally {
+      el('checkBtn').disabled = false;
+      el('stopBtn').style.display = 'none';
+      gradeCtl = null;
+    }
+  }
+
+  el('checkBtn').addEventListener('click', checkAnswer);
+  el('stopBtn').addEventListener('click', () => { if (gradeCtl) gradeCtl.abort(); });
+  // typing in the answer area must not trigger the card's tap-to-reveal
+  el('ansWrap').addEventListener('click', e => e.stopPropagation());
+
+  (async () => {
+    try {
+      sample = window.claude ? await window.claude.use('sample') : null;
+    } catch (e) { sample = null; }
+    if (sample && el('screen-card').classList.contains('active')) {
+      el('ansWrap').style.display = 'block';
+    }
+  })();
 
   loadProgress();
 })();
