@@ -331,6 +331,7 @@
   categories.sort((a,b) => order.indexOf(a) - order.indexOf(b));
 
   let PROGRESS = {};
+  let SEEN = {}; // { questionId: true } — has this card actually been displayed before?
   let deck = [];
   let idx = 0;
   let revealed = false;
@@ -353,10 +354,25 @@
       const raw = localStorage.getItem('ib_quiz_progress');
       if (raw) PROGRESS = JSON.parse(raw);
     } catch(e) { PROGRESS = {}; }
+    try {
+      const raw = localStorage.getItem('ib_quiz_seen');
+      if (raw) SEEN = JSON.parse(raw);
+    } catch(e) { SEEN = {}; }
     renderCatGrid();
   }
   function saveProgress() {
     try { localStorage.setItem('ib_quiz_progress', JSON.stringify(PROGRESS)); } catch(e) {}
+  }
+  function saveSeen() {
+    try { localStorage.setItem('ib_quiz_seen', JSON.stringify(SEEN)); } catch(e) {}
+  }
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
   }
 
   function catStats(cat) {
@@ -442,14 +458,19 @@
     });
   });
 
+  // A fresh shuffle every press, but weighted so a short session actually
+  // covers new ground: anything never yet DISPLAYED comes first (itself
+  // shuffled), then everything already seen (also shuffled) after it. Once
+  // the whole pool has been shown at least once, this is just a plain
+  // shuffle — exactly as "always shuffled" as a pure random draw, but it
+  // can no longer starve the back of the deck the way pure chance could
+  // across repeated short sessions.
   function buildDeck() {
     let pool = DATA.filter(q => selectedCats.has(q.category) && inScope(q));
     if (mode === 'unmarked') pool = pool.filter(q => PROGRESS[q.id] !== 'know');
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-    return pool;
+    const fresh = shuffle(pool.filter(q => !SEEN[q.id]));
+    const repeat = shuffle(pool.filter(q => SEEN[q.id]));
+    return fresh.concat(repeat);
   }
 
   el('startBtn').addEventListener('click', () => {
@@ -473,6 +494,7 @@
     if (idx >= deck.length) { finishSession(); return; }
     const q = deck[idx];
     revealed = false;
+    if (!SEEN[q.id]) { SEEN[q.id] = true; saveSeen(); }
     el('cardCat').textContent = q.category;
     const t = tierOf(q);
     const chip = el('cardTier');
