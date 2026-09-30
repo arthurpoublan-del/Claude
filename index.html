@@ -223,6 +223,94 @@
 
   .empty-note { color: var(--ink-dim); font-size: 13px; text-align: center; padding: 30px 10px; }
   .reset-link { font-family: var(--mono); font-size: 11px; color: var(--bad); text-align: center; margin-top: 20px; padding-bottom: 10px; }
+/* MOCK:CSS:START */
+  .screen [hidden] { display: none !important; }
+  .mk-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .mk-chip {
+    padding: 7px 11px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink-dim); font-size: 12.5px; font-weight: 600; font-family: inherit;
+  }
+  .mk-chip.on { border-color: var(--accent); color: var(--accent); background: rgba(63,182,138,0.08); }
+  .mk-match { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); margin-top: 10px; }
+  .mk-secondary {
+    width: 100%; padding: 13px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink); font-size: 14px; font-weight: 650; margin-top: 10px; font-family: inherit;
+  }
+  .mk-secondary:disabled { opacity: 0.45; }
+  .mk-secondary.accent { border-color: var(--accent-dim); color: var(--accent); background: rgba(63,182,138,0.08); }
+  .mk-row2 { display: flex; gap: 10px; }
+  .mk-row2 .mk-secondary { flex: 1; }
+  .mk-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .mk-top-l { display: flex; align-items: center; gap: 8px; min-width: 0; flex-wrap: wrap; }
+  .mk-flag {
+    display: inline-block; align-self: flex-start; margin-bottom: 10px; padding: 3px 8px; border-radius: 5px;
+    border: 1px solid rgba(201,116,58,0.6); color: #d9985f; background: rgba(201,116,58,0.10);
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .mk-kind { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 8px; }
+  .mk-ctx { font-size: 12px; color: var(--ink-dim); line-height: 1.45; margin-bottom: 8px; padding-left: 10px; border-left: 2px solid var(--line); }
+  .mk-timer-wrap { margin: 22px 0 18px; text-align: center; }
+  .mk-timer { font-family: var(--mono); font-size: 44px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+  .mk-timer.low { color: var(--warn); }
+  .mk-timer.over { color: var(--bad); }
+  .mk-timer-sub { color: var(--ink-dim); font-size: 12.5px; margin-top: 4px; }
+  .mk-session { font-family: var(--mono); font-size: 11px; color: var(--warn); }
+  .mk-script { font-size: 15px; line-height: 1.62; color: #c3ccd3; margin: 6px 0 16px; }
+  .mk-h { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); margin: 14px 0 8px; }
+  .mk-check-row {
+    display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; font-family: inherit;
+    padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel-2);
+    color: var(--ink); font-size: 13.5px; line-height: 1.45; margin-bottom: 6px;
+  }
+  .mk-check-row.on { border-color: var(--accent-dim); background: rgba(63,182,138,0.08); }
+  .mk-check-row .checkbox { margin-top: 1px; }
+  .mk-check-row.on .checkbox { background: var(--accent); border-color: var(--accent); }
+  .mk-check-row.on .checkbox svg { display: block; }
+  .mk-mistake {
+    padding: 10px 12px; border-radius: 8px; background: rgba(184,92,92,0.10); border: 1px solid rgba(184,92,92,0.35);
+    color: #d99090; font-size: 13px; line-height: 1.5;
+  }
+  .mk-grades { display: flex; gap: 8px; margin-top: 16px; }
+  .mk-grade {
+    flex: 1; padding: 13px 6px; border-radius: 11px; border: 1px solid var(--line); background: var(--panel);
+    font-size: 13.5px; font-weight: 650; font-family: inherit;
+  }
+  .mk-grade.m { color: var(--bad); } .mk-grade.s { color: var(--warn); } .mk-grade.n { color: var(--accent); }
+  .mk-grade.suggested { border-color: currentColor; background: rgba(255,255,255,0.04); }
+  .mk-endlink { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); text-align: center; margin: 22px 0 6px; padding: 8px; }
+  .mk-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--line); margin: 6px 0 4px; }
+  .mk-bar i { display: block; height: 100%; }
+  .mk-bar .n { background: var(--accent); } .mk-bar .s { background: var(--warn); } .mk-bar .m { background: var(--bad); }
+  .mk-topic-row { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; margin-bottom: 8px; }
+  .mk-topic-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .mk-topic-name { font-size: 14px; font-weight: 600; }
+  .mk-topic-stat { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); }
+  .mk-weak-item { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; margin-bottom: 8px; }
+  .mk-weak-item .mk-weak-q { font-size: 13.5px; line-height: 1.45; margin-top: 6px; }
+  .mk-weak-item .mk-weak-a { display: none; margin-top: 8px; font-size: 13px; line-height: 1.55; color: #c3ccd3; }
+  .mk-weak-item.open .mk-weak-a { display: block; }
+  .mk-weak-toggle { font-family: var(--mono); font-size: 10.5px; color: var(--accent); margin-top: 8px; background: none; border: none; padding: 0; text-transform: uppercase; letter-spacing: 0.05em; }
+  .mk-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; flex: 1; min-width: 0; }
+  .mk-field label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); }
+  .mk-input {
+    width: 100%; padding: 11px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel-2);
+    color: var(--ink); font-size: 16px; font-family: var(--mono);
+  }
+  .mk-input { min-width: 0; box-sizing: border-box; }
+  .mk-input[type=date] { font-size: 14px; padding: 11px 8px; }
+  .mk-input:focus { outline: none; border-color: var(--accent-dim); }
+  .mk-input.big { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .mk-out { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0 14px; }
+  .mk-out-cell { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; }
+  .mk-out-cell.wide { grid-column: 1 / -1; }
+  .mk-out-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); }
+  .mk-out-val { font-family: var(--mono); font-size: 21px; font-weight: 700; margin-top: 4px; }
+  .mk-out-val.accent { color: var(--accent); }
+  .mk-note { font-size: 12px; line-height: 1.55; color: var(--ink-dim); margin-top: 6px; }
+  .mk-back { font-family: var(--mono); font-size: 11px; color: var(--accent); background: none; border: none; padding: 0 0 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.05em; align-self: flex-start; }
+  .tab.mk-tab-added { }
+
+/* MOCK:CSS:END */
 </style>
 </head>
 <body>
@@ -239,6 +327,13 @@
     <div class="setup-title">400Q Bible — Technical only</div>
     <div class="setup-sub">284 questions, triaged by how often they actually come up in BB / MM / boutique processes. Start with Core and widen only when it's cold.</div>
 
+<!-- MOCK:ENTRY:START -->
+    <button class="superday-btn" id="mockEntryBtn">
+      <span class="superday-btn-main">🎤 Mock Interview Technicals</span>
+      <span class="superday-btn-sub">Answer aloud against a timer, reveal a spoken model answer, then face follow-ups that push past your first answer — <span id="mockEntryN"></span> questions, weak spots come back</span>
+    </button>
+
+<!-- MOCK:ENTRY:END -->
     <div class="setup-sub" style="margin-bottom:6px;">Track</div>
     <div class="mode-row" id="pathRow">
       <div class="mode-btn active" data-path="gen">Generalist</div>
@@ -336,6 +431,109 @@
     <button class="start-btn" id="backToSetup" style="margin-top:20px;">Back to sections</button>
   </div>
 
+<!-- MOCK:HTML:START -->
+  <div class="screen" id="screen-mock-home">
+    <div class="setup-title">Mock Interview Technicals</div>
+    <div class="setup-sub" id="mkHomeSub"></div>
+
+    <div class="setup-sub" style="margin-bottom:8px;">Topics</div>
+    <div class="mk-chips" id="mkTopicChips"></div>
+
+    <div class="setup-sub" style="margin:16px 0 8px;">Chance a London IBD Classic interviewer asks it</div>
+    <div class="mk-chips" id="mkTagChips"></div>
+    <div class="mk-match" id="mkMatch"></div>
+
+    <button class="start-btn" id="mkStart" style="margin-top:20px;">Start mock interview</button>
+    <button class="mk-secondary accent" id="mkQuick">⚡ Quick Fire — Likely only, 5 minute cap</button>
+    <button class="mk-secondary" id="mkWeak">Weak spots <span id="mkWeakN"></span></button>
+    <div class="mk-row2">
+      <button class="mk-secondary" id="mkProg">Progress</button>
+      <button class="mk-secondary" id="mkEj">easyJet calculator</button>
+    </div>
+  </div>
+
+  <div class="screen" id="screen-mock-item">
+    <div class="mk-top">
+      <div class="mk-top-l"><span class="tier-chip" id="mkTag"></span><span class="card-cat" id="mkTopic"></span></div>
+      <div class="card-pos" id="mkPos"></div>
+    </div>
+    <div class="mk-session" id="mkSessionClock" hidden></div>
+    <div class="mk-flag" id="mkFlag" hidden>Check Thursday morning</div>
+    <div class="mk-kind" id="mkKind"></div>
+    <div class="mk-ctx" id="mkCtx" hidden></div>
+    <div class="q-text" id="mkQ"></div>
+
+    <div class="mk-timer-wrap" id="mkTimerWrap">
+      <div class="mk-timer" id="mkTimer">1:00</div>
+      <div class="mk-timer-sub">Answer out loud, then reveal.</div>
+    </div>
+    <button class="start-btn" id="mkReveal" style="margin-top:0;">Reveal answer</button>
+
+    <div id="mkAns" hidden>
+      <div class="mk-h">Spoken script</div>
+      <div class="mk-script" id="mkScript"></div>
+      <div class="mk-h">Tick each point you hit</div>
+      <div id="mkChecks"></div>
+      <div class="mk-h">Most common mistake</div>
+      <div class="mk-mistake" id="mkMistake"></div>
+      <div class="mk-h">Grade yourself</div>
+      <div class="mk-grades">
+        <button class="mk-grade m" data-g="m">✕ Missed</button>
+        <button class="mk-grade s" data-g="s">~ Shaky</button>
+        <button class="mk-grade n" data-g="n">✓ Nailed</button>
+      </div>
+    </div>
+
+    <button class="mk-secondary" id="mkCalcBtn" hidden>Open the easyJet calculator</button>
+    <div class="mk-endlink" id="mkEnd">End session</div>
+  </div>
+
+  <div class="screen" id="screen-mock-end">
+    <div class="summary-stat">
+      <div class="summary-num" id="mkEndPct">—</div>
+      <div class="summary-label" id="mkEndLabel">nailed this session</div>
+    </div>
+    <div class="summary-breakdown">
+      <div class="sb-item"><div class="sb-num" style="color:var(--accent);" id="mkEndN">0</div><div class="sb-label">Nailed</div></div>
+      <div class="sb-item"><div class="sb-num" style="color:var(--warn);" id="mkEndS">0</div><div class="sb-label">Shaky</div></div>
+      <div class="sb-item"><div class="sb-num" style="color:var(--bad);" id="mkEndM">0</div><div class="sb-label">Missed</div></div>
+    </div>
+    <div class="setup-sub" id="mkEndWeakHead">Weak points to fix before you walk in:</div>
+    <div id="mkEndWeak"></div>
+    <button class="start-btn" id="mkEndDrill" style="margin-top:14px;">Drill weak spots</button>
+    <button class="mk-secondary" id="mkEndHome">Back to mock home</button>
+  </div>
+
+  <div class="screen" id="screen-mock-progress">
+    <button class="mk-back" id="mkProgBack">← Mock home</button>
+    <div class="setup-title">Mock progress</div>
+    <div class="setup-sub" id="mkProgSub"></div>
+    <div id="mkProgRows"></div>
+    <div class="reset-link" id="mkProgReset">Reset mock progress</div>
+  </div>
+
+  <div class="screen" id="screen-mock-ej">
+    <button class="mk-back" id="mkEjBack">← Back</button>
+    <div class="setup-title">easyJet: Apollo 715p cash offer</div>
+    <div class="mk-flag" style="margin-top:6px;">Check Thursday morning</div>
+    <div class="setup-sub">Type the current share price. The offer, undisturbed price and dates are the figures you gave me, so check them against the announcement.</div>
+
+    <div class="mk-field"><label for="ejPrice">Share price (pence)</label><input class="mk-input big" id="ejPrice" inputmode="decimal" autocomplete="off"></div>
+    <div class="mk-row2">
+      <div class="mk-field"><label for="ejDate">Price date</label><input class="mk-input" id="ejDate" type="date"></div>
+      <div class="mk-field"><label for="ejEnd">Assumed completion</label><input class="mk-input" id="ejEnd" type="date"></div>
+    </div>
+    <div class="mk-row2">
+      <div class="mk-field"><label for="ejOffer">Offer (pence)</label><input class="mk-input" id="ejOffer" inputmode="decimal" autocomplete="off"></div>
+      <div class="mk-field"><label for="ejUnd">Undisturbed (pence)</label><input class="mk-input" id="ejUnd" inputmode="decimal" autocomplete="off"></div>
+    </div>
+
+    <div class="mk-out" id="ejOut"></div>
+    <div class="mk-note" id="ejNote"></div>
+    <button class="mk-secondary" id="ejReset">Reset to the 29 September quote</button>
+  </div>
+
+<!-- MOCK:HTML:END -->
   <footer class="tabbar">
     <div class="tab active" data-screen="setup"><span class="tab-icon">▤</span>Sections</div>
     <div class="tab" data-screen="stats"><span class="tab-icon">◐</span>Progress</div>
@@ -841,5 +1039,364 @@
   loadProgress();
 })();
 </script>
+<!-- MOCK:JS:START -->
+<script>window.MOCK_DATA = [{"id": "acc-01", "topic": "Accounting", "likelihood": "Likely", "question": "Walk me through the three statements if depreciation goes up by £10. Assume 25% tax.", "answer": "Depreciation is an expense, so operating profit falls by ten. Tax falls by two pounds fifty, so net income falls by seven pounds fifty. On the cash flow statement I start from net income, down seven fifty, then add back the ten of depreciation because it is non-cash, so cash from operations rises by two fifty. On the balance sheet, PP&E is down ten and cash is up two fifty, so assets fall by seven fifty, matched by retained earnings falling seven fifty. It balances.", "checklist": ["Operating profit down £10", "Tax down £2.50, so net income down £7.50", "Cash flow: add back £10, cash from operations up £2.50", "Balance sheet: PP&E down £10, cash up £2.50, retained earnings down £7.50"], "mistake": "Saying cash falls. Depreciation is non-cash, so cash rises by the tax saving.", "timer": 60, "followups": [{"question": "What changes if there is no tax?", "answer": "Net income falls by the full ten, I add back ten, so cash is unchanged. PP&E is down ten and retained earnings are down ten. So the only cash effect of depreciation is the tax shield, which is 25% of ten, so two pounds fifty.", "checklist": ["Net income down £10", "Cash unchanged", "Cash effect is only the tax shield"], "mistake": "Thinking depreciation itself creates cash. The tax saving does."}, {"question": "Which cash flow statement lines move?", "answer": "Only cash from operations. Net income is down seven fifty and the depreciation add-back is up ten. Investing and financing do not move, because I have not bought, sold, borrowed or repaid anything.", "checklist": ["Only operating cash flow moves", "Net income down £7.50, D&A add-back up £10", "Investing and financing unchanged"], "mistake": "Putting depreciation in investing."}, {"question": "Why does the balance sheet still balance?", "answer": "Because every entry has a matching entry. Assets fall by seven fifty: PP&E down ten and cash up two fifty. Equity falls by seven fifty through retained earnings. And the change in cash on the cash flow statement is exactly the change in cash on the balance sheet.", "checklist": ["Assets down £7.50 equals equity down £7.50", "Cash on the cash flow statement equals cash on the balance sheet", "Every entry has an equal and opposite entry"], "mistake": "Forgetting the tax line, which leaves you out by £2.50."}, {"question": "Does higher depreciation change the value of a company in a DCF?", "answer": "Only through tax. Depreciation is non-cash, so it lowers taxable profit and raises free cash flow by the tax shield. Faster depreciation brings that saving forward, which is worth a little more in present value, but the total shield over the asset's life is the same.", "checklist": ["Value effect is only the tax shield", "Faster depreciation is a timing benefit", "Total shield over the asset's life is unchanged"], "mistake": "Saying higher depreciation lowers value because profit falls."}]}, {"id": "acc-02", "topic": "Accounting", "likelihood": "Likely", "question": "A company spends £10 cash on a machine that lasts five years. Walk me through the statements on purchase, then after one year of depreciation.", "answer": "On purchase, cash is down ten and PP&E is up ten. That is an investing outflow and there is no income statement effect. After a year, straight-line depreciation is two pounds. Operating profit is down two, tax is down fifty pence, so net income is down one fifty. I add back the two, so cash from operations is up fifty pence. Compared with before the purchase, assets are down one fifty and so is retained earnings.", "checklist": ["Purchase: cash down £10, PP&E up £10, investing outflow", "Depreciation is £10 divided by 5, so £2 a year", "Net income down £1.50", "Cash from operations up £0.50", "Balance sheet balances: assets and equity both down £1.50"], "mistake": "Expensing the whole £10 in the income statement.", "timer": 60, "followups": [{"question": "Why is the purchase not an expense?", "answer": "Because the machine gives benefit over five years. I capitalise it and spread the cost through depreciation, so the cost matches the revenue it helps earn. The cash still leaves on day one, so it shows in investing.", "checklist": ["Capitalise assets with a multi-year life", "Matching principle", "Cash outflow sits in investing"], "mistake": "Confusing when cash leaves with when the expense is recognised."}, {"question": "What changes if I lease the machine instead, under IFRS 16?", "answer": "I still put an asset on the balance sheet, a right-of-use asset, and a matching lease liability. There is no upfront cash. Each year I charge depreciation and interest instead of rent, and the cash lease payments split between interest and repaying the liability.", "checklist": ["Right-of-use asset and lease liability", "No upfront cash", "Depreciation and interest replace rent"], "mistake": "Saying leases stay off the balance sheet."}, {"question": "What if I depreciate it over three years instead of five?", "answer": "Depreciation becomes three pounds thirty-three a year. Profit is lower, tax is lower, and cash is a little higher early on because the tax shield is bigger, about eighty-three pence against fifty. Total depreciation is still ten, so over the asset's life only the timing changes.", "checklist": ["£3.33 a year", "Bigger early tax shield", "Same total over the life"], "mistake": "Thinking the total cost changes."}]}, {"id": "acc-03", "topic": "Accounting", "likelihood": "Likely", "question": "A company borrows £10 at 5%. Walk me through the statements at the start and after a year of interest. Tax is 25%.", "answer": "At the start, cash is up ten and debt is up ten. Financing cash flow is up ten and the income statement is untouched. After a year, interest is fifty pence, which cuts profit before tax by fifty pence. Tax falls by twelve and a half pence, so net income is down thirty-seven and a half pence. Cash falls by the same amount, because I pay the interest but pay less tax. Retained earnings fall by the same, so it balances.", "checklist": ["Start: cash up £10, debt up £10, financing inflow £10", "Interest is £0.50 pre-tax", "Net income down £0.375", "Cash down £0.375: interest paid less tax saved", "Retained earnings down £0.375"], "mistake": "Forgetting the tax shield on interest.", "timer": 60, "followups": [{"question": "Why is debt cheaper than equity, and why does tax matter?", "answer": "Lenders are paid first and have a fixed claim, so they accept a lower return. Interest is also generally tax-deductible, subject to limits, so 5% costs only 3.75% after 25% tax. That is why WACC uses the after-tax cost of debt.", "checklist": ["Fixed, senior claim", "Interest tax-deductible, subject to limits", "After-tax cost is 3.75%"], "mistake": "Using the pre-tax cost of debt in WACC."}, {"question": "Where does interest paid sit on the cash flow statement?", "answer": "Under IFRS the company can choose. Many put it in operating cash flow and some in financing. For a DCF it does not matter, because I use unlevered free cash flow, which is before interest.", "checklist": ["IFRS gives a choice", "Operating or financing", "Unlevered free cash flow ignores interest"], "mistake": "Assuming IFRS and US GAAP are identical here."}, {"question": "What happens when the loan is repaid?", "answer": "Cash falls by ten, debt falls by ten, and financing cash flow is down ten. There is no income statement effect, because the interest was already charged. The following year I save the interest, which lifts net income by thirty-seven and a half pence.", "checklist": ["Cash down £10, debt down £10", "Repayment is a financing outflow", "No income statement effect"], "mistake": "Putting the repayment through the income statement."}]}, {"id": "acc-04", "topic": "Accounting", "likelihood": "Likely", "question": "If you could keep only one financial statement, which would it be and why?", "answer": "I would keep the cash flow statement. It starts from net income, adjusts for non-cash items and working capital, and ends at the actual change in cash, so it shows whether the business really generates cash. It also shows investing and financing, so I can see how it funds itself. Its weakness is that it does not show what the company owns or owes, so the balance sheet would be my second choice.", "checklist": ["Cash flow statement", "Links profit to actual cash", "Shows investing and financing", "Acknowledge the weakness and name the balance sheet next"], "mistake": "Picking the income statement. It can look healthy while the company runs out of cash.", "timer": 60, "followups": [{"question": "Why not the income statement?", "answer": "Because accruals and non-cash items sit in it. A company can show a profit while customers have not paid and cash is running out. It also says nothing about debt or capital spending.", "checklist": ["Accruals and non-cash items", "Ignores debt and capex", "Profit is not cash"], "mistake": "Ignoring working capital."}, {"question": "Why does the cash flow statement capture so much? How do the three link?", "answer": "Net income from the income statement is its starting line. Changes in balance sheet items, like receivables or debt, are the adjustments. And the closing cash on the cash flow statement is the cash on the balance sheet. So nothing can move without touching at least two statements.", "checklist": ["Net income flows into the cash flow statement", "Balance sheet changes become adjustments", "Closing cash equals balance sheet cash"], "mistake": "Saying the statements are independent."}, {"question": "What if you were allowed two statements?", "answer": "The income statement and two years of balance sheets. From the change in the balance sheet items plus net income I can rebuild the cash flow statement.", "checklist": ["Income statement plus balance sheets", "Rebuild the cash flow statement", "Uses the change in balance sheet items"], "mistake": "Taking only one year of balance sheet, which gives no changes."}]}, {"id": "acc-05", "topic": "Accounting", "likelihood": "Likely", "question": "Can a profitable company go bankrupt? How?", "answer": "Yes, because profit is not cash. A company can sell on credit, so customers owe it money while suppliers and staff want paying now. Growth can drain cash into stock and receivables. It can spend heavily on capex, or have debt that matures before it can refinance. If a lender will not roll the loan, or a covenant is breached, it runs out of cash and becomes insolvent even though the income statement looks fine.", "checklist": ["Profit is not cash", "Working capital absorbs cash", "Capex", "Debt maturities, refinancing or covenants"], "mistake": "Saying cash flow problems with no mechanism behind it.", "timer": 60, "followups": [{"question": "Why does growth consume cash?", "answer": "Because I pay for stock, wages and suppliers before customers pay me. Faster growth means a bigger gap, so working capital absorbs cash even while profit rises. A business can grow itself into insolvency, which is called overtrading.", "checklist": ["Pay first, collect later", "Working capital grows with sales", "Overtrading"], "mistake": "Confusing growth with cash generation."}, {"question": "Which ratios would you check?", "answer": "Interest cover, which is EBIT over interest. Net debt over EBITDA. The current ratio. And the debt maturity profile, especially anything due in the next twelve to eighteen months. I would also look at free cash flow after capex.", "checklist": ["Interest cover", "Net debt to EBITDA", "Liquidity or current ratio", "Maturity profile"], "mistake": "Only quoting EBITDA."}, {"question": "If you were their adviser, what would you do?", "answer": "Fix liquidity first. Talk to lenders about a waiver or extension, cut discretionary capex, squeeze working capital, and consider new equity or selling a non-core asset. If it is genuinely insolvent, a restructuring is the next conversation.", "checklist": ["Talk to lenders early", "Cut capex and free up working capital", "Equity or asset sales", "Restructuring as the last resort"], "mistake": "Jumping straight to bankruptcy."}]}, {"id": "acc-06", "topic": "Accounting", "likelihood": "Likely", "question": "A company makes a £10 sale on credit. Walk me through the statements. Ignore costs and assume 25% tax paid in cash.", "answer": "Revenue is up ten, so profit before tax is up ten, tax is up two fifty, and net income is up seven fifty. On the balance sheet, receivables are up ten. On the cash flow statement, net income is up seven fifty but I subtract the ten increase in receivables, so cash from operations is down two fifty. That is the tax I have paid on cash I have not yet collected. Assets are up seven fifty and retained earnings are up seven fifty.", "checklist": ["Revenue up £10, net income up £7.50", "Receivables up £10", "Cash from operations: 7.50 less 10, so down £2.50", "Cash down £2.50 because tax is paid"], "mistake": "Thinking cash rises when the sale is recorded.", "timer": 60, "followups": [{"question": "Why does profit rise while cash falls?", "answer": "Because accrual accounting recognises revenue when it is earned, not when cash arrives. The customer has not paid yet, but the tax bill is real. The gap between profit and cash is the receivable.", "checklist": ["Revenue recognised when earned", "Receivable is the gap", "Tax is still paid"], "mistake": "Mixing up cash accounting and accrual accounting."}, {"question": "What if the customer never pays?", "answer": "I write off a bad debt: an expense of ten and receivables down ten. It cuts profit and tax by two fifty. Cash only changes through the tax saving, because no cash was ever received.", "checklist": ["Bad debt expense of £10", "Receivable written off", "Cash moves only via tax"], "mistake": "Reversing the revenue instead of booking a bad debt."}, {"question": "What is DSO and why does an analyst care?", "answer": "Days sales outstanding: receivables divided by revenue, times 365. It shows how long customers take to pay. A rising number can mean weaker collections or aggressive revenue recognition, so it is an early warning on cash.", "checklist": ["Receivables over revenue times 365", "Measures collection speed", "Early warning on cash quality"], "mistake": "Using it without comparing to prior periods or peers."}]}, {"id": "ev-01", "topic": "EV & Equity Value", "likelihood": "Likely", "question": "Walk me through the bridge from enterprise value to equity value, and the direction of each item.", "answer": "I start with enterprise value. I subtract debt, including leases if EBITDA is after IFRS 16, subtract preferred shares, minority interest and debt-like items such as pension deficits, and add cash and investments in associates. That gives equity value. Going the other way, from equity value to enterprise value, every sign flips. For example, enterprise value of 1,000, debt of 300, cash of 100, minority interest of 50, preferred of 20 and associates of 40 gives equity value of 770.", "checklist": ["Subtract debt, preferred, minority interest, pension deficit", "Add cash and associates", "Every sign flips going the other way", "Example gives 770"], "mistake": "Getting the signs backwards or forgetting minority interest.", "timer": 60, "followups": [{"question": "Why does the bridge work? What is the logic behind each item?", "answer": "Enterprise value is the value of the operating business to everyone who funds it. Debt, preferred and minorities are claims on that value from people who are not ordinary shareholders, so they come off. Cash and associates are assets the shareholders own outside the operations, so they go on.", "checklist": ["EV is value to all capital providers", "Non-equity claims come off", "Non-operating assets go on"], "mistake": "Memorising the signs without the logic."}, {"question": "Should I use book or market values in the bridge?", "answer": "Market values where possible. Book debt is usually a fair proxy unless the debt trades at a big discount, as in distress. Equity uses market capitalisation, never book equity, and options and convertibles need treating carefully.", "checklist": ["Market values where possible", "Book debt is a proxy", "Distressed debt is the exception"], "mistake": "Using book equity."}, {"question": "Which items in the bridge would you argue about?", "answer": "Leases, pensions and cash. Leases are included only if EBITDA is after IFRS 16, for consistency. Pension deficits are debt-like but often shown net of tax. And cash might be trapped overseas or needed for working capital, so I might use only excess cash.", "checklist": ["Leases must match the EBITDA basis", "Pensions are debt-like, maybe net of tax", "Only excess cash"], "mistake": "Treating every balance sheet item as clear cut."}]}, {"id": "ev-02", "topic": "EV & Equity Value", "likelihood": "Likely", "question": "Why do we subtract cash and add minority interest when going from equity value to enterprise value?", "answer": "Cash is subtracted because a buyer gets the cash with the company, so the net price paid for the operations is lower, and cash produces no EBITDA. Minority interest is added because we consolidate a hundred percent of a subsidiary's EBITDA even if we own less. To match the numerator to the EBITDA in the denominator, enterprise value must include the slice that belongs to outside shareholders.", "checklist": ["Cash lowers the net price and earns no EBITDA", "100% of the subsidiary's EBITDA is consolidated", "Numerator must match denominator"], "mistake": "Saying cash is subtracted simply because it is an asset.", "timer": 60, "followups": [{"question": "Give me a quick example of the minority interest logic.", "answer": "A parent owns 80% of a subsidiary with EBITDA of 100 and enterprise value of 1,000. Group EBITDA includes all 100. Equity value reflects only our 80 percent, so an enterprise value of 800 over EBITDA of 100 would understate the multiple. Adding the minority's 200 gives 1,000 over 100, ten times.", "checklist": ["EBITDA is 100% consolidated", "Equity value covers only the parent's 80%", "Add the minority's £200m to get 10x"], "mistake": "Ignoring minority interest, which understates the multiple."}, {"question": "Is subtracting cash always right?", "answer": "Not always. If cash is trapped abroad, needed to run the business, or held in a regulated entity, it is not really free. I would use excess cash only. Companies with huge cash piles can even show a negative enterprise value.", "checklist": ["Trapped or operating cash", "Use excess cash only", "Cash-rich firms can show negative EV"], "mistake": "Assuming all cash is available to a buyer."}, {"question": "Why do associates go the other way?", "answer": "Associates are equity-accounted, so their income sits below EBITDA and is not in it. When I go from enterprise value to equity value I add the associate stake, and from equity value to enterprise value I subtract it, so the multiple reflects only consolidated operations.", "checklist": ["Income sits below EBITDA", "Add going EV to equity, subtract going back", "Keeps the multiple clean"], "mistake": "Adding associates the wrong way round."}]}, {"id": "ev-03", "topic": "EV & Equity Value", "likelihood": "Likely", "question": "Why do we pair enterprise value with EBITDA, but equity value with net income?", "answer": "It is about consistency. EBITDA is earned before interest, so it belongs to all capital providers, lenders and shareholders, and I match it to enterprise value. Net income is after interest, so it belongs only to shareholders, and I match it to equity value, which is the P/E ratio. Mixing them, like equity value over EBITDA, compares a number that is for shareholders only with a profit that is for everyone.", "checklist": ["EBITDA is before interest, so it belongs to all capital providers", "Net income is after interest, so it belongs to shareholders", "Match numerator and denominator"], "mistake": "Using equity value over EBITDA.", "timer": 60, "followups": [{"question": "Why does that work when companies have different debt levels?", "answer": "Enterprise value multiples ignore capital structure, so a heavily indebted company and a debt-free one can be compared fairly. P/E is distorted by leverage, because more debt changes earnings after interest and raises risk.", "checklist": ["EV multiples are capital-structure neutral", "P/E is distorted by leverage"], "mistake": "Comparing P/Es across very different leverage."}, {"question": "When would you use EV/EBIT instead of EV/EBITDA?", "answer": "For capital-intensive businesses. EBITDA ignores depreciation, which represents real spending on assets over time. Airlines and retailers are examples where EBIT or EBITDAR gives a fairer picture.", "checklist": ["Capital-intensive sectors", "EBITDA ignores capex", "Airlines and retailers"], "mistake": "Treating EBITDA as cash flow."}, {"question": "What would you use for a bank?", "answer": "Price to earnings and price to tangible book value. Debt is a bank's raw material, so enterprise value is not meaningful and interest is an operating cost, not a financing cost.", "checklist": ["P/E and P/TBV", "Debt is operating for banks", "EV is not meaningful"], "mistake": "Applying EV/EBITDA to a bank."}]}, {"id": "ev-04", "topic": "EV & Equity Value", "likelihood": "Likely", "question": "A company has 100 million shares at £10 and 10 million options with a £5 strike. What are the diluted shares and equity value?", "answer": "The options are in the money, so I use the treasury stock method. Exercise brings in ten million times five, so £50 million. The company uses it to buy back shares at £10, which is five million shares. Net new shares are ten less five, so five million. Diluted shares are 105 million, and equity value is 105 million times £10, which is £1,050 million.", "checklist": ["Options in the money, so include", "Proceeds £50m", "Buyback of 5m shares", "105m diluted shares, equity value £1,050m"], "mistake": "Adding all ten million options without the buyback.", "timer": 60, "followups": [{"question": "Why does that work?", "answer": "Exercising options brings cash in, and the method assumes the company uses that cash to buy back shares at the current price. Only the net new shares dilute existing holders.", "checklist": ["Cash comes in on exercise", "Assumed buyback at current price", "Only net new shares dilute"], "mistake": "Forgetting the buyback assumption."}, {"question": "What if the strike were £15?", "answer": "The options are out of the money, so nobody would exercise. Diluted shares stay at 100 million and equity value is £1,000 million.", "checklist": ["Out of the money, ignore", "100m shares, £1,000m equity value"], "mistake": "Including out-of-the-money options."}, {"question": "What happens if the share price rises to £20?", "answer": "Dilution grows. Proceeds are still £50 million, but the buyback is only 2.5 million shares at £20, so net new shares are 7.5 million. Diluted shares are 107.5 million and equity value is £2,150 million. In a takeover the offer price drives the count, so it is circular.", "checklist": ["Higher price, more dilution", "7.5m net new shares, 107.5m diluted", "Circular in an offer-price calculation"], "mistake": "Using the current share price for an offer valuation."}]}, {"id": "val-01", "topic": "Valuation", "likelihood": "Likely", "question": "What are the main valuation methods, and which gives the highest value?", "answer": "There are three main ones: trading comparables, precedent transactions and a discounted cash flow. I would add an LBO as a floor, showing what a financial buyer could pay. Precedents usually give the highest value because they include a control premium and expected synergies. Comps sit lower because they reflect minority trading prices. A DCF depends entirely on the assumptions, so it can be highest or lowest. I would show them together on a football field.", "checklist": ["Comps, precedents, DCF, plus LBO as a floor", "Precedents usually highest: control premium and synergies", "Comps reflect minority trading prices", "DCF is assumption-driven"], "mistake": "Saying a DCF is always the highest.", "timer": 60, "followups": [{"question": "Why do precedents usually come out higher than comps?", "answer": "Because a buyer takes control and pays a premium for it, and often pays for synergies the market price does not include. Trading prices are what minority investors will pay for a small stake.", "checklist": ["Control premium", "Synergies", "Comps are minority prices"], "mistake": "Forgetting that precedents include a premium."}, {"question": "When could precedents be the lowest?", "answer": "When the deals were done in a weak market or distress, when the precedents are old, or when the target is much stronger than the businesses that were sold. In a hot trading market with few recent deals, comps can exceed precedents.", "checklist": ["Weak market or distressed deals", "Old or unrepresentative deals", "Hot trading market"], "mistake": "Assuming the ranking never changes."}, {"question": "Which method do you trust most?", "answer": "It depends on the situation. Comps for a listed business with good peers, precedents in a sale process, and a DCF when cash flows are predictable. I never rely on one, which is why I cross-check them on a football field.", "checklist": ["Depends on the situation", "Never rely on one method", "Cross-check"], "mistake": "Giving one answer for every case."}]}, {"id": "val-02", "topic": "Valuation", "likelihood": "Likely", "question": "How do you choose comparable companies?", "answer": "I start with industry and business model, then narrow by size, geography, growth, margins and risk. For a retailer I would look for similar formats and sales channels, not just anyone in the same index. I aim for five to eight names. Then I sense-check: does the market treat these as true peers? I explain outliers, and exclude names affected by unusual events, such as a bid approach.", "checklist": ["Industry and business model", "Size, geography, growth, margins, risk", "About five to eight names", "Exclude outliers and bid-affected names"], "mistake": "Choosing only by sector label.", "timer": 60, "followups": [{"question": "Why does that work?", "answer": "A multiple is shorthand for growth, risk and returns. If peers share those drivers, the market should price them similarly, so their median multiple is a fair proxy for the target.", "checklist": ["Multiples reflect growth, risk and returns", "Similar drivers imply similar pricing"], "mistake": "Treating the multiple as a fact rather than a summary of drivers."}, {"question": "What if there are no good comps?", "answer": "Widen to a broader sector or other geographies with adjustments, or lean on precedents and a DCF. I would flag that comparability is weak rather than force it.", "checklist": ["Widen sector or geography", "Lean on other methods", "Be transparent"], "mistake": "Forcing poor comps into the analysis."}, {"question": "Median or mean?", "answer": "Median. One outlier can distort the mean, and the median shows what a typical peer looks like.", "checklist": ["Median resists outliers"], "mistake": "Using the mean with an outlier in the set."}]}, {"id": "val-03", "topic": "Valuation", "likelihood": "Likely", "question": "Two companies look similar but one trades on a much higher multiple. Why?", "answer": "The market is pricing different futures. The higher-multiple company probably has higher expected growth, better margins or returns on capital, lower risk, or more predictable earnings. It could also have scarcity value, like a strong brand or market position, better liquidity, or takeover speculation. I would check forward estimates rather than last year's numbers, and look at cash conversion.", "checklist": ["Growth", "Margins and returns on capital", "Risk and predictability", "Scarcity, liquidity or takeover premium"], "mistake": "Just saying it is overvalued.", "timer": 60, "followups": [{"question": "Why does that work? What is a multiple really telling you?", "answer": "A multiple is roughly one over the required return minus growth. Higher growth or lower risk pushes it up. So it is the market's combined view of both.", "checklist": ["Multiple is about one over return less growth", "Growth up, multiple up", "Risk up, multiple down"], "mistake": "Treating multiples as unrelated to fundamentals."}, {"question": "How would you test whether the premium is justified?", "answer": "Compare forward growth and margins, then check whether a DCF at a reasonable WACC supports the higher price. If no sensible DCF gets there, I would call it expensive.", "checklist": ["Compare forward growth and margins", "Cross-check with a DCF"], "mistake": "Judging by last year's earnings only."}, {"question": "Could accounting differences explain it?", "answer": "Yes. IFRS 16 treatment, capitalised costs, one-offs and different year ends can distort comparisons, so I adjust and calendarise before comparing.", "checklist": ["IFRS 16 and capitalised costs", "One-offs", "Calendarise year ends"], "mistake": "Comparing unadjusted numbers."}]}, {"id": "dcf-01", "topic": "DCF", "likelihood": "Likely", "question": "Walk me through a DCF.", "answer": "I forecast unlevered free cash flow for five to ten years: EBIT less tax, plus depreciation, less capex, less the increase in working capital. I discount those at WACC, which reflects the risk of the business. Then I calculate a terminal value using a perpetual growth rate or an exit multiple, and discount that too. Adding it all gives enterprise value. I subtract net debt and other claims to reach equity value, divide by diluted shares for a price per share, and run sensitivities.", "checklist": ["Forecast unlevered free cash flow", "Discount at WACC", "Terminal value", "Sum gives enterprise value", "Bridge to equity value and per share", "Sensitivities"], "mistake": "Forgetting the bridge from enterprise value to equity value.", "timer": 90, "followups": [{"question": "Why does a DCF work?", "answer": "A company is worth the present value of the cash it will generate for its capital providers. Discounting converts future cash into today's money and compensates for risk.", "checklist": ["Value equals present value of future cash", "Discounting reflects time and risk"], "mistake": "Describing the steps without the principle."}, {"question": "Which assumptions move the value most?", "answer": "Usually WACC and terminal growth, because terminal value is most of enterprise value. Small changes in either swing the answer, which is why I show a sensitivity table.", "checklist": ["WACC", "Terminal growth or multiple", "Sensitivity table"], "mistake": "Presenting a single point estimate."}, {"question": "How would you forecast revenue for a retailer?", "answer": "Build it from drivers: number of stores times sales per store, like-for-like growth, online share and pricing, rather than one flat growth rate. Then I check it against market growth and peers.", "checklist": ["Driver-based build", "Like-for-like growth", "Check against market and peers"], "mistake": "Applying a flat growth rate."}]}, {"id": "dcf-02", "topic": "DCF", "likelihood": "Likely", "question": "What is unlevered free cash flow and how do you calculate it?", "answer": "It is the cash the business generates before any payments to lenders. I take EBIT, subtract tax on that EBIT, add back depreciation and amortisation, subtract capital expenditure, and subtract any increase in working capital. For example, EBIT of 100 taxed at 25% leaves 75. Add 30 of depreciation, subtract 40 of capex and 5 of working capital, and the answer is 60.", "checklist": ["EBIT times one minus tax", "Add depreciation and amortisation", "Subtract capex", "Subtract increase in working capital", "Example gives 60"], "mistake": "Starting from net income and leaving interest in.", "timer": 60, "followups": [{"question": "Why unlevered?", "answer": "Because I am valuing the operations for all capital providers, so financing choices should not affect the cash flow. The effect of debt comes through the discount rate, WACC, instead.", "checklist": ["Value operations independent of financing", "Debt effect sits in WACC"], "mistake": "Double counting the effect of debt."}, {"question": "Why tax the EBIT rather than use the actual tax paid?", "answer": "Actual tax includes the shield from interest, and that shield is already captured in the after-tax cost of debt in WACC. Using it in both places would double count.", "checklist": ["Actual tax includes the interest shield", "Shield is already in WACC"], "mistake": "Using the actual tax charge."}, {"question": "How does IFRS 16 affect this?", "answer": "After IFRS 16, EBIT and EBITDA exclude rent. So I must treat leases consistently: either deduct lease payments from free cash flow, or treat lease liabilities as debt in the bridge, but not both.", "checklist": ["EBITDA excludes rent after IFRS 16", "Treat leases consistently", "Do not double count"], "mistake": "Ignoring the lease treatment."}]}, {"id": "dcf-03", "topic": "DCF", "likelihood": "Likely", "question": "How do you calculate WACC?", "answer": "WACC is the blended cost of a company's funding. It equals equity's share of capital times cost of equity, plus debt's share times cost of debt times one minus the tax rate. For example, 70% equity at 9% and 30% debt at 5% with 25% tax gives 6.3% plus 1.125%, so 7.425%. I use market values for the weights and a target capital structure.", "checklist": ["Equity weight times Ke plus debt weight times Kd times (1−t)", "Market values, target structure", "Example gives about 7.4%"], "mistake": "Using the pre-tax cost of debt or book-value weights.", "timer": 60, "followups": [{"question": "Why is debt cheaper than equity?", "answer": "Lenders are paid first and have a fixed claim, so they take less risk and accept a lower return. Interest is also tax-deductible.", "checklist": ["Senior, fixed claim", "Tax-deductible interest"], "mistake": "Forgetting the tax effect."}, {"question": "Why do we use the after-tax cost of debt?", "answer": "Because interest reduces the tax bill, so each pound of interest costs only seventy-five pence at 25% tax. That tax shield is a real cash benefit to the company, so it belongs in the discount rate.", "checklist": ["Interest reduces tax", "Shield is real cash", "Belongs in the discount rate"], "mistake": "Applying the tax shield twice."}, {"question": "What happens to WACC as you add debt?", "answer": "It falls at first because debt is cheaper, but then rises as distress risk pushes up both the cost of debt and the cost of equity. There is an optimal capital structure in between.", "checklist": ["Falls at first", "Rises with distress risk", "Optimal mix in between"], "mistake": "Saying more debt always lowers WACC."}]}, {"id": "dcf-04", "topic": "DCF", "likelihood": "Likely", "question": "How do you calculate the cost of equity, and what inputs would you use for a UK company?", "answer": "I use CAPM: cost of equity equals the risk-free rate plus beta times the equity risk premium. For a sterling company the risk-free rate is a gilt yield, typically the ten-year, and the premium is a UK market premium, generally somewhere around five to six percent. Say the gilt yields 4%, beta is 1.2 and the premium is 5.5%. Cost of equity is 4 plus 6.6, so 10.6%. I would check today's gilt yield first.", "checklist": ["Ke equals Rf plus beta times ERP", "Gilt yield, in sterling", "UK equity risk premium", "Example gives 10.6%"], "mistake": "Using a US Treasury yield for a sterling cash flow.", "timer": 60, "followups": [{"question": "Why does beta matter?", "answer": "Beta measures how much the stock moves with the market. Investors are only paid for risk they cannot diversify away, so the return they require rises with beta.", "checklist": ["Beta is market sensitivity", "Only non-diversifiable risk is rewarded"], "mistake": "Confusing beta with total volatility."}, {"question": "Why gilts, and which maturity?", "answer": "They are sterling government debt, so effectively default-free in the same currency as the cash flows. I match the maturity to the cash flows, which is why the ten-year or longer is normal.", "checklist": ["Same currency", "Default-free proxy", "Match the maturity"], "mistake": "Mixing currencies."}, {"question": "What if the company's own beta is unreliable?", "answer": "I use an industry beta: take comparable companies, unlever each beta, take the median, and relever at the target capital structure.", "checklist": ["Use comparables", "Unlever, take the median, relever"], "mistake": "Using a noisy raw regression beta."}], "flag": true}, {"id": "dcf-05", "topic": "DCF", "likelihood": "Likely", "question": "How do you calculate terminal value, and how do you cross-check it?", "answer": "Two ways. Perpetuity growth: final-year free cash flow times one plus growth, divided by WACC minus growth. Exit multiple: final-year EBITDA times a multiple from comparables. To cross-check I convert one into the other. For example, free cash flow of 60, growth of 2% and WACC of 8% gives 1,020. On EBITDA of 100 that implies about 10.2 times. If comps trade nearer six times, my growth assumption is too high.", "checklist": ["Gordon growth: FCF(1+g)/(WACC−g)", "Exit multiple: EBITDA times multiple", "Cross-check with implied multiple or growth", "Example: 1,020, implying 10.2x"], "mistake": "Using a growth rate above long-run economic growth.", "timer": 60, "followups": [{"question": "Why does the formula work?", "answer": "It is the present value of a cash flow that grows forever at g, discounted at WACC. The denominator, WACC minus growth, is why small changes in either move the value so much.", "checklist": ["Present value of a growing perpetuity", "Denominator drives sensitivity"], "mistake": "Memorising the formula without explaining it."}, {"question": "What growth rate would you use?", "answer": "Roughly long-term inflation or nominal growth, or below. About 2% for the UK. It must never exceed the growth of the economy, because no company outgrows it forever.", "checklist": ["About 2 percent", "Never above economic growth"], "mistake": "Choosing a growth rate that exceeds GDP."}, {"question": "Which method is better?", "answer": "Perpetuity growth is theoretical and very sensitive. The exit multiple is market-based, but it assumes today's market pricing still applies in the future. I show both and check they roughly agree.", "checklist": ["Growth is sensitive", "Multiple assumes market pricing persists", "Show both"], "mistake": "Trusting one method blindly."}]}, {"id": "dcf-06", "topic": "DCF", "likelihood": "Likely", "question": "What happens to a DCF value when interest rates rise?", "answer": "Value falls. Higher gilt yields lift the risk-free rate, so the cost of equity and WACC rise and cash flows are discounted harder. Terminal value falls most because it is furthest away. For example, with growth at 2%, moving WACC from 8% to 9% cuts the terminal value multiple from 17 times free cash flow to about 14.6 times, roughly 14% lower. Growth companies, with more value in the distant future, are hit hardest.", "checklist": ["Risk-free rate up, so WACC up", "Terminal value most sensitive", "8% to 9% cuts value about 14%", "Growth companies hit hardest"], "mistake": "Ignoring that inflation may also lift cash flows.", "timer": 60, "followups": [{"question": "Why does that work?", "answer": "Value is cash flow divided by the discount rate minus growth. A higher rate makes the denominator bigger, and distant cash flows get discounted over more periods, so they lose the most.", "checklist": ["Bigger denominator", "Distant cash flows discounted longer"], "mistake": "Not linking rate rises to duration."}, {"question": "Inflation is high. Wouldn't revenue grow too?", "answer": "Partly. If a company can pass on costs, nominal cash flows rise and offset some of the effect. Retailers with weak pricing power cannot, so it is company-specific.", "checklist": ["Pricing power decides", "Nominal cash flows can rise", "Company-specific"], "mistake": "Assuming inflation cancels the rate effect."}, {"question": "Does WACC rise one for one with gilt yields?", "answer": "Not exactly. The risk-free part rises, but the equity risk premium and credit spreads can move the other way, and part of the debt is fixed rate, so the effect is usually less than one for one.", "checklist": ["Risk-free part rises", "Premium and spreads may offset", "Less than one for one"], "mistake": "Assuming a mechanical one-for-one pass-through."}]}, {"id": "ma-01", "topic": "M&A", "likelihood": "Likely", "question": "In an all-stock deal, how do you tell whether it is accretive, using P/E?", "answer": "If the acquirer's P/E is higher than the P/E it pays for the target, the deal is accretive, because it issues expensive shares to buy cheaper earnings. If lower, it is dilutive. For example, an acquirer on 15 times, with £100 million of earnings and 100 million shares, pays £600 million for a target earning £30 million, which is 20 times. It issues 40 million shares. Earnings per share go from £1.00 to 130 over 140, so £0.93, about 7% dilutive.", "checklist": ["Acquirer P/E above price paid P/E means accretive", "Otherwise dilutive", "Example is about 7% dilutive", "Ignores synergies"], "mistake": "Applying the rule when part of the price is cash or debt.", "timer": 60, "followups": [{"question": "Why does that work?", "answer": "It compares earnings yields. The acquirer gives up earnings at a yield of one over its own P/E, which is 6.7% at 15 times, and buys earnings at a yield of 5% at 20 times. It gives away more than it gets.", "checklist": ["Compare earnings yields", "Pays 6.7% to get 5%"], "mistake": "Quoting the rule without the reason."}, {"question": "How much synergy would make that deal break even?", "answer": "Combined earnings must reach £140 million to keep earnings per share at a pound, so I need £10 million more after tax. At 25% tax that is about £13.3 million before tax.", "checklist": ["Need £10m after tax", "About £13.3m pre-tax"], "mistake": "Forgetting to gross up for tax."}, {"question": "Does accretion mean the deal creates value?", "answer": "No. Accretion is an accounting outcome. A deal can be accretive and still destroy value if the buyer overpays or takes on more risk. Value comes from returns above the cost of capital.", "checklist": ["Accretion is not value creation", "Value needs returns above cost of capital"], "mistake": "Treating accretion as proof the deal is good."}]}, {"id": "ma-02", "topic": "M&A", "likelihood": "Likely", "question": "How is goodwill created in an acquisition?", "answer": "Goodwill is the price paid for the equity, less the fair value of the target's identifiable net assets. I take book equity, add fair value write-ups of assets and identified intangibles, and subtract the deferred tax liability those write-ups create. For example, a £600 million price, £200 million book equity, £150 million of write-ups and 25% deferred tax gives net assets of £312.5 million, so goodwill of £287.5 million. Under IFRS it is not amortised, but tested for impairment every year.", "checklist": ["Price less fair value of net identifiable assets", "Write-ups create a deferred tax liability", "Example gives £287.5m", "Not amortised under IFRS; annual impairment test"], "mistake": "Saying goodwill is amortised under IFRS.", "timer": 60, "followups": [{"question": "Why is there a premium over net assets?", "answer": "Because a business is worth more than its assets: brand, customer relationships, workforce, synergies and growth. Those are only partly identifiable, so what is left after fair-valuing identifiable assets is goodwill.", "checklist": ["Brand, relationships and synergies", "Unidentifiable value"], "mistake": "Treating goodwill as a real asset you could sell separately."}, {"question": "What if the price is below the fair value of net assets?", "answer": "That is a bargain purchase. After rechecking the fair values, the excess is recognised as a gain in the income statement.", "checklist": ["Bargain purchase", "Gain in profit or loss", "Recheck values first"], "mistake": "Creating negative goodwill on the balance sheet."}, {"question": "How does the balance sheet change on the deal?", "answer": "The target's equity is eliminated. The buyer adds the target's assets and liabilities at fair value, plus goodwill and the deferred tax liability, and shows how the price was paid: cash, new debt or new shares.", "checklist": ["Target equity eliminated", "Assets at fair value plus goodwill", "Funding side reflects how it was paid"], "mistake": "Simply adding the two balance sheets together."}]}, {"id": "ma-03", "topic": "M&A", "likelihood": "Likely", "question": "Why do buyers pay a premium for a listed company?", "answer": "Because they are buying control and need to persuade shareholders to sell, and the market price reflects only a minority stake. The buyer can also improve the business and realise synergies, and the share price may not reflect intrinsic value. But the premium should never exceed the present value of the synergies. For example, if a target is worth £500 million and the buyer pays a 30% premium, that is £150 million. If synergies are worth £200 million, the buyer keeps £50 million.", "checklist": ["Control", "Persuade shareholders to sell", "Synergies", "Premium should not exceed synergy value", "Example: £150m paid against £200m of synergies"], "mistake": "Ignoring that the premium hands synergy value to the seller.", "timer": 60, "followups": [{"question": "Why does that work? Who captures the synergies?", "answer": "Whoever negotiates best. Every pound of premium gives synergy value to the target's shareholders, so the higher the premium, the less the buyer's shareholders keep. In a competitive auction, almost all of it can go to the seller.", "checklist": ["Premium transfers synergies to sellers", "Competition raises the seller's share"], "mistake": "Assuming the buyer keeps all the synergies."}, {"question": "What is the undisturbed price and why does it matter?", "answer": "It is the share price before any bid speculation. The premium is measured against it because it strips out the effect of leaks and rumours.", "checklist": ["Price before speculation", "Premium is measured against it"], "mistake": "Measuring the premium against a price that already includes bid hopes."}, {"question": "What premium is typical for UK deals?", "answer": "It varies widely, so I would look at recent comparable UK bids rather than quote one number I cannot back up.", "checklist": ["Varies widely", "Check recent comparable deals"], "mistake": "Quoting a made-up average.", "flag": true}]}, {"id": "lbo-01", "topic": "LBO", "likelihood": "Likely", "question": "Walk me through an LBO.", "answer": "I start with the purchase price, an enterprise value based on a multiple of EBITDA, and a financing structure: senior and junior debt and the sponsor's equity, plus fees. That gives sources and uses. I project the company's cash flows, use free cash flow after interest to repay debt, and track the debt schedule. At exit, typically year five, I apply an exit multiple to EBITDA, subtract net debt, and get equity value. Comparing that with the equity invested gives the money multiple and IRR.", "checklist": ["Purchase price and sources and uses", "Project cash flows", "Debt paydown", "Exit multiple", "Equity value gives money multiple and IRR"], "mistake": "Forgetting fees and refinancing of existing debt in the uses.", "timer": 90, "followups": [{"question": "Why does this structure generate returns?", "answer": "Debt paydown and EBITDA growth raise equity value while the sponsor puts in only part of the price. Returns come from those and from any multiple expansion.", "checklist": ["Small equity cheque", "Growth and paydown lift equity value"], "mistake": "Describing the model without explaining the source of returns."}, {"question": "What are the three sources of return?", "answer": "EBITDA growth, multiple expansion and debt paydown. A good sponsor does not rely on multiple expansion, because it cannot control it.", "checklist": ["EBITDA growth", "Multiple expansion", "Debt paydown"], "mistake": "Relying on multiple expansion."}, {"question": "Which assumptions matter most?", "answer": "The entry and exit multiples, the leverage and the EBITDA growth. A small change in the exit multiple moves returns a lot, so I always show a sensitivity table.", "checklist": ["Entry and exit multiples", "Leverage", "Growth", "Sensitivity table"], "mistake": "Presenting a single-point IRR."}]}, {"id": "lbo-02", "topic": "LBO", "likelihood": "Likely", "question": "What makes a good LBO candidate, and why do retail leases limit how much debt you can raise?", "answer": "A good candidate has stable, predictable cash flow, low capital expenditure, a strong market position, room to cut costs, assets to secure against and a clear exit. Retail is harder because leases are fixed obligations. Under IFRS 16 lease liabilities count as debt, so lenders look at lease-adjusted leverage and rent cover. Weak sales cannot be matched by lower rent, so operating leverage is high, and lenders lend less.", "checklist": ["Stable cash flow, low capex, strong market position, cost levers", "Assets to secure against, clear exit", "Leases are fixed claims and count as debt under IFRS 16", "Rent cover and operating leverage"], "mistake": "Saying retail can never be an LBO.", "timer": 60, "followups": [{"question": "Why does stability matter?", "answer": "Debt has fixed payments. Stable cash flows mean I can meet interest and principal even in a bad year, whereas volatile cash flows make lenders demand less leverage.", "checklist": ["Fixed payments need predictable cash", "Volatility reduces debt capacity"], "mistake": "Ignoring downside cases."}, {"question": "How do lenders measure capacity?", "answer": "Net debt to EBITDA, interest cover, fixed charge cover using EBITDAR, and free cash flow to debt. For retail they often use lease-adjusted measures.", "checklist": ["Net debt to EBITDA", "Interest cover", "EBITDAR fixed charge cover"], "mistake": "Ignoring lease commitments."}, {"question": "How could a sponsor deal with the lease problem?", "answer": "Sale and leaseback of owned property, renegotiating leases, closing weak stores, or simply using less leverage.", "checklist": ["Sale and leaseback", "Renegotiate or close stores", "Use less debt"], "mistake": "Assuming lenders will look through leases."}]}, {"id": "lbo-03", "topic": "LBO", "likelihood": "Likely", "question": "Why does leverage increase an LBO's returns?", "answer": "Because debt lets the sponsor buy the same business with less equity, so the gain is spread over a smaller cheque. For example, a £1,000 million company grows to £1,500 million. With no debt that is 1.5 times my money. With £600 million of debt still outstanding, my £400 million of equity becomes £900 million, which is 2.25 times. Debt is also tax-deductible and cheaper than equity. The catch is risk: if value falls, equity is wiped out faster.", "checklist": ["Smaller equity cheque", "Example: 1.5x unlevered against 2.25x levered", "Tax shield and cheaper capital", "Higher risk in a downturn"], "mistake": "Saying leverage always raises returns.", "timer": 60, "followups": [{"question": "Why is debt cheaper than equity?", "answer": "Lenders rank first and have fixed claims, so they require a lower return, and interest is tax-deductible. Equity holders take the residual risk, so they require more.", "checklist": ["Senior, fixed claim", "Tax shield", "Equity bears residual risk"], "mistake": "Forgetting the tax effect."}, {"question": "When could leverage reduce returns?", "answer": "When the return on the business is below the cost of debt. Then leverage magnifies losses, interest eats the cash that would repay debt, and exit value can fall below the debt.", "checklist": ["Return on assets below cost of debt", "Interest drains cash", "Equity wiped out"], "mistake": "Assuming positive returns."}, {"question": "What limits how much debt you use?", "answer": "Lenders' appetite, interest cover, covenants and the cash flow available. Push leverage too high and a small miss breaches a covenant and hands control to the lenders.", "checklist": ["Interest cover and covenants", "Cash flow available", "Risk of losing control"], "mistake": "Ignoring covenants."}]}, {"id": "lbo-04", "topic": "LBO", "likelihood": "Likely", "question": "A sponsor buys a business with £100 million EBITDA at 10 times, funded 60% by debt. In year five EBITDA is £130 million, exit is at 10 times, and £200 million of debt has been repaid. Estimate the IRR without a calculator.", "answer": "Entry enterprise value is £1,000 million, so debt is £600 million and equity is £400 million. At exit, enterprise value is 130 times 10, so £1,300 million. Debt has fallen by 200 to £400 million, so equity is £900 million. That is 2.25 times my money over five years. Two times is about 15% and two and a half times is about 20%, so 2.25 times is around 17 to 18%. The exact figure is 17.6%.", "checklist": ["Entry: EV £1,000m, debt £600m, equity £400m", "Exit: EV £1,300m, debt £400m, equity £900m", "Money multiple 2.25x", "IRR about 17 to 18%"], "mistake": "Forgetting to subtract the remaining debt at exit.", "timer": 60, "followups": [{"question": "Where did the value come from?", "answer": "The gain is £500 million. EBITDA growth is 30 times 10, so £300 million. Debt paydown is £200 million. There is no multiple expansion.", "checklist": ["EBITDA growth £300m", "Debt paydown £200m", "No multiple expansion"], "mistake": "Attributing returns to multiple expansion."}, {"question": "Why does the IRR shortcut work?", "answer": "With one outflow and one inflow, IRR is the constant annual growth rate that turns the investment into the proceeds. So it is the money multiple to the power of one over the number of years, minus one: 2.25 to the fifth root, minus one.", "checklist": ["IRR is a constant growth rate", "MOIC to the power of 1/n, minus 1"], "mistake": "Forgetting the time dimension."}, {"question": "What if you exit at 9 times?", "answer": "Exit enterprise value is 1,170. Less debt of 400 gives equity of 770. That is 1.925 times, and the IRR is about 14%.", "checklist": ["EV £1,170m", "Equity £770m", "1.925x, IRR about 14%"], "mistake": "Not recalculating equity after the change."}]}, {"id": "deal-01", "topic": "Deals & Pitch", "likelihood": "Likely", "question": "Pitch me easyJet as a merger arbitrage trade.", "answer": "Apollo has offered 715 pence in cash. The shares trade at 677.8 pence as of 29 September, so the spread is 37.2 pence, or 5.5%. If it completes by the end of March 2027, that is 183 days, roughly 11% annualised. The undisturbed price was 394 pence, so the market implies about an 88% chance of completion. I would buy if I believe completion is more likely than that, because the downside is about 42% and the upside is 5.5%. The key risks are regulatory and EU ownership.", "checklist": ["Offer 715p, price 677.8p, spread 37.2p or 5.5%", "About 11% annualised to end of March 2027", "Implied probability about 88% against undisturbed 394p", "Downside about 42% against upside 5.5%", "Key risks: regulatory and EU ownership", "A clear view on completion"], "mistake": "Presenting it as low risk. It is a bet on completion.", "timer": 90, "followups": [{"question": "Why is there a spread at all?", "answer": "Because completion is uncertain and the cash arrives later. The spread pays me for time and for the risk that the deal fails and the price falls back towards the undisturbed level.", "checklist": ["Time value", "Completion risk", "Fall back towards undisturbed price"], "mistake": "Calling the spread free money."}, {"question": "How did you get the implied probability?", "answer": "The price equals probability times the offer plus one minus probability times the fall-back price. Rearranged, that is 677.8 minus 394, over 715 minus 394, which is 88.4%. It ignores time value and assumes the fall-back is exactly the undisturbed price.", "checklist": ["(Price − fall-back) / (Offer − fall-back)", "88.4%", "Simplifications: no time value, fall-back equals undisturbed"], "mistake": "Forgetting the fall-back price."}, {"question": "What would you compare the annualised return with?", "answer": "The return I could earn on gilts or cash, plus a premium for the risk of losing about 42% if the deal breaks. If the spread does not pay me enough for that, I pass.", "checklist": ["Risk-free alternative", "Premium for completion risk", "Downside if deal breaks"], "mistake": "Quoting the annualised return without a comparison."}], "flag": true, "calc": "easyjet"}];</script>
+<script>
+// Mock Interview Technicals — self-contained module, own storage keys, no changes to the drill above.
+(function () {
+  'use strict';
+  const DATA = window.MOCK_DATA || [];
+  if (!DATA.length) return;
+  const el = id => document.getElementById(id);
+
+  const LS_P = 'ib_mock_progress', LS_EJ = 'ib_mock_ej';
+  const TOPIC_ORDER = ['Accounting', 'EV & Equity Value', 'Valuation', 'DCF', 'M&A', 'LBO', 'Markets & Macro', 'Deals & Pitch'];
+  const TAGS = ['Likely', 'Possible', 'Unlikely'];
+  const TAG_CLASS = { Likely: 't1', Possible: 't2', Unlikely: 't3' };
+  const WEIGHT = { Likely: 6, Possible: 3, Unlikely: 1 };
+  const GAPS = [3, 6, 12, 24];            // weak items return after this many items served, then later
+  const GRADE = { n: 'Nailed', s: 'Shaky', m: 'Missed' };
+  const QUICK_MS = 5 * 60 * 1000;
+
+  function read(k, d) { try { const r = localStorage.getItem(k); return r ? JSON.parse(r) : d; } catch (e) { return d; } }
+  function write(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+  let PROG = read(LS_P, {});               // { itemKey: { g:'n'|'s'|'m', t, n } }
+
+  // ---- flatten questions and follow-ups into gradable items -----------------
+  const ITEMS = {};
+  DATA.forEach(q => {
+    const common = { topic: q.topic, tag: q.likelihood, calc: q.calc || null };
+    ITEMS[q.id] = Object.assign({ key: q.id, parent: null, timer: q.timer || 60, question: q.question, answer: q.answer,
+      checklist: q.checklist, mistake: q.mistake, flag: !!q.flag, nFollow: (q.followups || []).length }, common);
+    (q.followups || []).forEach((f, i) => {
+      const key = q.id + '#' + (i + 1);
+      ITEMS[key] = Object.assign({ key, parent: q.id, n: i + 1, timer: 45, question: f.question, answer: f.answer,
+        checklist: f.checklist, mistake: f.mistake, flag: !!(f.flag || q.flag) }, common);
+    });
+  });
+  const FOLLOW_COUNT = Object.keys(ITEMS).length - DATA.length;
+  const TOPICS = TOPIC_ORDER.filter(t => DATA.some(q => q.topic === t))
+    .concat([...new Set(DATA.map(q => q.topic))].filter(t => TOPIC_ORDER.indexOf(t) < 0));
+
+  const F = { topics: new Set(TOPICS), tags: new Set(TAGS) };
+  let S = null;                            // active session
+  let ejReturn = 'home';
+
+  // ---- navigation -----------------------------------------------------------
+  function show(name) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    el('screen-mock-' + name).classList.add('active');
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === mockTab));
+    el('headerCount').textContent = 'mock interview';
+    if (name === 'home') { el('progressFill').style.width = '0%'; }
+  }
+  const mockTab = document.createElement('div');
+  mockTab.className = 'tab';
+  mockTab.dataset.screen = 'mock';
+  mockTab.innerHTML = '<span class="tab-icon">◉</span>Mock';
+  document.querySelector('footer.tabbar').appendChild(mockTab);
+
+  function openMock() {
+    if (S && !S.ended) show('item'); else { renderHome(); show('home'); }
+  }
+  mockTab.addEventListener('click', openMock);
+  el('mockEntryBtn').addEventListener('click', openMock);
+  el('mockEntryN').textContent = DATA.length;
+
+  // ---- home -----------------------------------------------------------------
+  const filtered = () => DATA.filter(q => F.topics.has(q.topic) && F.tags.has(q.likelihood));
+  const weakKeys = () => Object.keys(PROG).filter(k => ITEMS[k] && PROG[k].g !== 'n');
+
+  function chip(label, on, cls, onClick) {
+    const b = document.createElement('button');
+    b.className = 'mk-chip' + (on ? ' on' : '') + (cls ? ' ' + cls : '');
+    b.textContent = label;
+    b.addEventListener('click', onClick);
+    return b;
+  }
+  function renderHome() {
+    el('mkHomeSub').textContent = DATA.length + ' questions and ' + FOLLOW_COUNT + ' follow-ups. One question at a time against a timer, weighted towards the ones an interviewer is most likely to ask.';
+    const tc = el('mkTopicChips'); tc.innerHTML = '';
+    TOPICS.forEach(t => tc.appendChild(chip(t, F.topics.has(t), '', () => { F.topics.has(t) ? F.topics.delete(t) : F.topics.add(t); renderHome(); })));
+    const gc = el('mkTagChips'); gc.innerHTML = '';
+    TAGS.forEach(t => gc.appendChild(chip(t + ' (' + DATA.filter(q => q.likelihood === t).length + ')', F.tags.has(t), '', () => { F.tags.has(t) ? F.tags.delete(t) : F.tags.add(t); renderHome(); })));
+    const n = filtered().length;
+    el('mkMatch').textContent = n ? n + ' questions match your filters' : 'Nothing matches: pick at least one topic and one likelihood.';
+    el('mkStart').disabled = !n;
+    const w = weakKeys().length;
+    el('mkWeakN').textContent = '(' + w + ')';
+    el('mkWeak').disabled = !w;
+    el('mkQuick').disabled = !DATA.some(q => q.likelihood === 'Likely' && F.topics.has(q.topic));
+  }
+  el('mkStart').addEventListener('click', () => startSession('mock'));
+  el('mkQuick').addEventListener('click', () => startSession('quick'));
+  el('mkWeak').addEventListener('click', () => startSession('weak'));
+  el('mkProg').addEventListener('click', () => { renderProgress(); show('progress'); });
+  el('mkProgBack').addEventListener('click', () => { renderHome(); show('home'); });
+  el('mkEj').addEventListener('click', () => openEj('home'));
+
+  // ---- timer ----------------------------------------------------------------
+  const T = { running: false, remaining: 0, total: 0 };
+  let lastTick = performance.now();
+  function fmt(ms) { const s = Math.ceil(ms / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  function paintTimer() {
+    const t = el('mkTimer');
+    t.textContent = fmt(T.remaining);
+    t.className = 'mk-timer' + (T.remaining === 0 ? ' over' : T.remaining <= 10000 ? ' low' : '');
+    el('mkTimerWrap').querySelector('.mk-timer-sub').textContent = T.remaining === 0
+      ? 'Time. Finish your sentence, then reveal.' : 'Answer out loud, then reveal.';
+  }
+  function paintClock() {
+    const c = el('mkSessionClock');
+    if (S && S.clock !== null) { c.hidden = false; c.textContent = 'Quick Fire · ' + fmt(S.clock) + ' left'; } else c.hidden = true;
+  }
+  setInterval(() => {
+    const now = performance.now(), dt = now - lastTick; lastTick = now;
+    if (!S || S.ended || !el('screen-mock-item').classList.contains('active') || document.hidden) return;
+    if (T.running) { T.remaining = Math.max(0, T.remaining - dt); paintTimer(); }
+    if (S.clock !== null) {
+      S.clock = Math.max(0, S.clock - dt); paintClock();
+      el('progressFill').style.width = ((QUICK_MS - S.clock) / QUICK_MS * 100) + '%';
+      if (S.clock === 0) finishSession();
+    }
+  }, 200);
+
+  // ---- session --------------------------------------------------------------
+  function startSession(mode) {
+    let pool = [];
+    if (mode === 'mock') pool = filtered();
+    if (mode === 'quick') pool = DATA.filter(q => q.likelihood === 'Likely' && F.topics.has(q.topic));
+    S = { mode, pool: pool.slice(), total: pool.length, served: 0, chain: [], pending: [], weak: [], results: {}, first: {},
+          recovered: new Set(), cur: null, ended: false, clock: mode === 'quick' ? QUICK_MS : null };
+    if (mode === 'weak') {
+      const keys = shuffle(weakKeys());
+      if (!keys.length) { S = null; return; }
+      S.weak = keys.map((k, i) => ({ key: k, stage: 0, dueAt: i, drained: false }));
+      S.total = keys.length;
+    } else if (!pool.length) { S = null; return; }
+    show('item');
+    nextItem();
+  }
+
+  function pickMain() {
+    if (!S.pool.length) return null;
+    const w = S.pool.map(q => (WEIGHT[q.likelihood] || 1) * (PROG[q.id] ? 1 : 1.6));
+    let r = Math.random() * w.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < S.pool.length; i++) { r -= w[i]; if (r <= 0) return S.pool.splice(i, 1)[0]; }
+    return S.pool.pop();
+  }
+
+  function nextItem() {
+    if (S.chain.length) return present(S.chain.shift(), false);
+    const due = S.weak.filter(w => w.dueAt <= S.served).sort((a, b) => a.dueAt - b.dueAt)[0];
+    if (due) return present(due.key, true);
+    const q = pickMain();
+    if (q) return present(q.id, false);
+    const rest = S.weak.filter(w => !w.drained)[0];    // pool empty: serve each leftover weak item once more
+    if (rest) { rest.drained = true; return present(rest.key, true); }
+    finishSession();
+  }
+
+  function present(key, returning) {
+    const it = ITEMS[key];
+    S.served++;
+    S.cur = { it, returning, revealed: false, ticks: new Set() };
+    S.pending = (!it.parent && !returning && S.mode === 'mock') ? Array.from({ length: it.nFollow }, (_, i) => key + '#' + (i + 1)) : [];
+
+    const tag = el('mkTag'); tag.className = 'tier-chip ' + TAG_CLASS[it.tag]; tag.textContent = it.tag;
+    el('mkTopic').textContent = it.topic;
+    el('mkPos').textContent = 'Item ' + S.served;
+    el('mkFlag').hidden = !it.flag;
+    el('mkKind').textContent = returning ? 'Returning weak point' + (it.parent ? ' · follow-up' : '')
+      : it.parent ? 'Follow-up ' + it.n + ' of ' + ITEMS[it.parent].nFollow : 'Question';
+    const ctx = el('mkCtx');
+    if (it.parent) { ctx.hidden = false; ctx.textContent = 'Follow-up to: ' + ITEMS[it.parent].question; } else ctx.hidden = true;
+    el('mkQ').textContent = it.question;
+    el('mkAns').hidden = true;
+    el('mkReveal').hidden = false;
+    el('mkTimerWrap').hidden = false;
+    el('mkCalcBtn').hidden = !it.calc;
+    document.querySelectorAll('.mk-grade').forEach(b => b.classList.remove('suggested'));
+    const secs = it.parent ? 45 : (S.mode === 'quick' ? Math.round(it.timer / 2) : it.timer);
+    T.total = T.remaining = secs * 1000; T.running = true; paintTimer(); paintClock();
+    el('screen-mock-item').scrollTop = 0;
+    if (S.mode === 'mock') el('progressFill').style.width = (Math.min(1, (S.total - S.pool.length) / Math.max(1, S.total)) * 100) + '%';
+    if (S.mode === 'weak') el('progressFill').style.width = (Math.min(1, S.served / Math.max(1, S.total)) * 100) + '%';
+  }
+
+  el('mkReveal').addEventListener('click', () => {
+    const c = S && S.cur; if (!c) return;
+    c.revealed = true; T.running = false;
+    el('mkScript').textContent = c.it.answer;
+    const box = el('mkChecks'); box.innerHTML = '';
+    c.it.checklist.forEach((pt, i) => {
+      const b = document.createElement('button');
+      b.className = 'mk-check-row';
+      b.innerHTML = '<span class="checkbox"><svg viewBox="0 0 24 24" fill="none" stroke="#08130f" stroke-width="3"><path d="M4 12l5 5L20 7"/></svg></span><span></span>';
+      b.lastChild.textContent = pt;
+      b.addEventListener('click', () => {
+        c.ticks.has(i) ? c.ticks.delete(i) : c.ticks.add(i);
+        b.classList.toggle('on', c.ticks.has(i));
+        suggest();
+      });
+      box.appendChild(b);
+    });
+    el('mkMistake').textContent = c.it.mistake;
+    el('mkAns').hidden = false;
+    el('mkReveal').hidden = true;
+    el('mkTimerWrap').hidden = true;
+    suggest();
+  });
+
+  function suggest() {
+    const c = S.cur, ratio = c.ticks.size / c.it.checklist.length;
+    const g = ratio === 1 ? 'n' : ratio >= 0.5 ? 's' : 'm';
+    document.querySelectorAll('.mk-grade').forEach(b => b.classList.toggle('suggested', c.ticks.size > 0 && b.dataset.g === g));
+  }
+
+  document.querySelectorAll('.mk-grade').forEach(b => b.addEventListener('click', () => grade(b.dataset.g)));
+
+  function grade(g) {
+    const c = S && S.cur; if (!c || !c.revealed) return;
+    const key = c.it.key, prev = PROG[key] || {};
+    PROG[key] = { g, t: Date.now(), n: (prev.n || 0) + 1 }; write(LS_P, PROG);
+    S.results[key] = g;
+    if (!S.first[key]) S.first[key] = g;
+    const w = S.weak.find(x => x.key === key);
+    if (g === 'n') {
+      if (w) { S.weak.splice(S.weak.indexOf(w), 1); S.recovered.add(key); }
+    } else if (w) {
+      w.stage = Math.min(w.stage + 1, GAPS.length - 1); w.dueAt = S.served + GAPS[w.stage];
+    } else {
+      S.weak.push({ key, stage: 0, dueAt: S.served + GAPS[0], drained: false });
+    }
+    S.chain = S.pending; S.pending = [];
+    nextItem();
+  }
+
+  el('mkEnd').addEventListener('click', () => finishSession());
+  el('mkCalcBtn').addEventListener('click', () => openEj('item'));
+
+  // ---- end screen -----------------------------------------------------------
+  function finishSession() {
+    if (!S || S.ended) return;
+    S.ended = true; T.running = false;
+    const r = Object.values(S.first);
+    const n = r.filter(x => x === 'n').length, s = r.filter(x => x === 's').length, m = r.filter(x => x === 'm').length;
+    el('mkEndN').textContent = n; el('mkEndS').textContent = s; el('mkEndM').textContent = m;
+    el('mkEndPct').textContent = r.length ? Math.round(n / r.length * 100) + '%' : '—';
+    el('mkEndLabel').textContent = r.length ? 'nailed first time across ' + r.length + ' items' + (S.recovered.size ? ' · ' + S.recovered.size + ' recovered on a second attempt' : '') : 'no items graded yet';
+    const list = el('mkEndWeak'); list.innerHTML = '';
+    el('mkEndWeakHead').textContent = S.weak.length ? 'Weak points to fix before you walk in (' + S.weak.length + '):' : 'No unresolved weak points. Every miss was recovered.';
+    S.weak.forEach(w => list.appendChild(weakCard(ITEMS[w.key])));
+    el('mkEndDrill').hidden = !weakKeys().length;
+    el('progressFill').style.width = '100%';
+    show('end');
+  }
+  function weakCard(it) {
+    const d = document.createElement('div'); d.className = 'mk-weak-item';
+    const tag = document.createElement('span'); tag.className = 'tier-chip ' + TAG_CLASS[it.tag]; tag.textContent = it.tag;
+    const top = document.createElement('div'); top.style.cssText = 'display:flex;gap:8px;align-items:center;';
+    const tp = document.createElement('span'); tp.className = 'card-cat'; tp.textContent = it.topic;
+    top.appendChild(tag); top.appendChild(tp);
+    const q = document.createElement('div'); q.className = 'mk-weak-q';
+    q.textContent = (it.parent ? 'Follow-up: ' : '') + it.question;
+    const a = document.createElement('div'); a.className = 'mk-weak-a'; a.textContent = it.answer;
+    const tg = document.createElement('button'); tg.className = 'mk-weak-toggle'; tg.textContent = 'Show model answer';
+    tg.addEventListener('click', () => { d.classList.toggle('open'); tg.textContent = d.classList.contains('open') ? 'Hide model answer' : 'Show model answer'; });
+    d.appendChild(top); d.appendChild(q); d.appendChild(tg); d.appendChild(a);
+    return d;
+  }
+  el('mkEndDrill').addEventListener('click', () => startSession('weak'));
+  el('mkEndHome').addEventListener('click', () => { renderHome(); show('home'); });
+
+  // ---- progress -------------------------------------------------------------
+  function tally(topic) {
+    const items = Object.values(ITEMS).filter(i => !topic || i.topic === topic);
+    let n = 0, s = 0, m = 0;
+    items.forEach(i => { const g = PROG[i.key] && PROG[i.key].g; if (g === 'n') n++; else if (g === 's') s++; else if (g === 'm') m++; });
+    return { total: items.length, n, s, m, u: items.length - n - s - m };
+  }
+  function renderProgress() {
+    const all = tally();
+    el('mkProgSub').textContent = 'Latest grade for each of ' + all.total + ' items (questions and follow-ups). ' + (all.total - all.u) + ' graded so far.';
+    const box = el('mkProgRows'); box.innerHTML = '';
+    [null].concat(TOPICS).forEach(t => {
+      const x = tally(t);
+      const row = document.createElement('div'); row.className = 'mk-topic-row';
+      row.innerHTML = '<div class="mk-topic-head"><span class="mk-topic-name"></span><span class="mk-topic-stat"></span></div><div class="mk-bar"><i class="n"></i><i class="s"></i><i class="m"></i></div><div class="mk-topic-stat"></div>';
+      row.querySelector('.mk-topic-name').textContent = t || 'All topics';
+      row.querySelector('.mk-topic-head .mk-topic-stat').textContent = (x.total - x.u) + ' / ' + x.total + ' graded';
+      const bars = row.querySelectorAll('.mk-bar i');
+      bars[0].style.width = (x.n / x.total * 100) + '%'; bars[1].style.width = (x.s / x.total * 100) + '%'; bars[2].style.width = (x.m / x.total * 100) + '%';
+      row.lastChild.textContent = x.n + ' nailed · ' + x.s + ' shaky · ' + x.m + ' missed · ' + x.u + ' unseen';
+      if (!t) row.style.borderColor = 'var(--accent-dim)';
+      box.appendChild(row);
+    });
+  }
+  el('mkProgReset').addEventListener('click', () => {
+    if (confirm('Reset all mock interview grades?')) { PROG = {}; write(LS_P, PROG); renderProgress(); }
+  });
+
+  // ---- easyJet calculator ---------------------------------------------------
+  const EJ_DEF = { price: '677.8', date: '2026-09-29', end: '2027-03-31', offer: '715', und: '394' };
+  let EJ = Object.assign({}, EJ_DEF, read(LS_EJ, {}));
+  const EJ_IN = { price: 'ejPrice', date: 'ejDate', end: 'ejEnd', offer: 'ejOffer', und: 'ejUnd' };
+
+  function ejCompute(v) {
+    const P = parseFloat(v.price), O = parseFloat(v.offer), D = parseFloat(v.und);
+    const d0 = Date.parse(v.date), d1 = Date.parse(v.end);
+    if (!(P > 0) || !(O > 0) || !isFinite(D) || O === D) return null;
+    const days = (d1 - d0) / 86400000;
+    const ret = (O - P) / P;
+    return { spread: O - P, ret, days: isFinite(days) ? days : NaN,
+      ann: days > 0 && 1 + ret > 0 ? Math.pow(1 + ret, 365 / days) - 1 : NaN,
+      prob: (P - D) / (O - D), down: D / P - 1, downPence: D - P };
+  }
+  window.MockCalc = { ejCompute };          // exposed for the number-check script
+
+  function pct(x, dp) { return isFinite(x) ? (x * 100).toFixed(dp == null ? 1 : dp) + '%' : 'n/a'; }
+  function niceDate(s) { const d = new Date(Date.parse(s)); return isFinite(d) ? d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : 'end date'; }
+  function paintEj() {
+    const r = ejCompute(EJ), out = el('ejOut'); out.innerHTML = '';
+    const cell = (label, val, cls, wide) => {
+      const d = document.createElement('div'); d.className = 'mk-out-cell' + (wide ? ' wide' : '');
+      d.innerHTML = '<div class="mk-out-label"></div><div class="mk-out-val"></div>';
+      d.firstChild.textContent = label; d.lastChild.textContent = val; if (cls) d.lastChild.classList.add(cls);
+      out.appendChild(d);
+    };
+    if (!r) { cell('Check the inputs', 'Enter a price, offer and undisturbed price', '', true); el('ejNote').textContent = ''; return; }
+    cell('Spread to offer', r.spread.toFixed(1) + 'p');
+    cell('Days to completion', isFinite(r.days) ? String(Math.round(r.days)) : 'n/a');
+    cell('Return to ' + niceDate(EJ.end), pct(r.ret), 'accent');
+    cell('Annualised return', pct(r.ann), 'accent');
+    cell('Implied probability of completion', pct(r.prob), 'accent', true);
+    cell('Fall to undisturbed if it breaks', pct(r.down) + ' (' + r.downPence.toFixed(1) + 'p)');
+    cell('Risk to reward', r.spread > 0 ? (-r.downPence / r.spread).toFixed(1) + ' : 1' : 'n/a');
+    let note = 'Implied probability = (price − undisturbed) ÷ (offer − undisturbed). It ignores time value and any dividend, and assumes the deal breaking takes the shares back to the undisturbed price. Annualised return compounds the return over 365 ÷ days.';
+    if (r.spread <= 0) note = 'The shares are at or above the offer, so the market is pricing a higher or competing bid. ' + note;
+    else if (r.prob <= 0) note = 'The price is at or below the undisturbed level, so the market is pricing the deal as failing. ' + note;
+    if (!(r.days > 0)) note = 'The completion date must be after the price date. ' + note;
+    el('ejNote').textContent = note;
+  }
+  Object.keys(EJ_IN).forEach(k => {
+    const input = el(EJ_IN[k]); input.value = EJ[k];
+    input.addEventListener('input', () => { EJ[k] = input.value; write(LS_EJ, EJ); paintEj(); });
+  });
+  el('ejReset').addEventListener('click', () => {
+    EJ = Object.assign({}, EJ_DEF); write(LS_EJ, EJ);
+    Object.keys(EJ_IN).forEach(k => { el(EJ_IN[k]).value = EJ[k]; }); paintEj();
+  });
+  function openEj(from) { ejReturn = from; paintEj(); show('ej'); }
+  el('mkEjBack').addEventListener('click', () => {
+    if (ejReturn === 'item' && S && !S.ended) show('item'); else { renderHome(); show('home'); }
+  });
+
+  renderHome();
+})();
+</script>
+<!-- MOCK:JS:END -->
 </body>
 </html>
