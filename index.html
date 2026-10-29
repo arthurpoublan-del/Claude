@@ -17,6 +17,8 @@
     --ink-3: rgba(0, 0, 0, 0.42);
     --rule: rgba(0, 0, 0, 0.16);
     --fill: #f2f2f2;
+    --right: #0b7a3e;
+    --wrong: #c4221f;
     --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, Georgia, "Noto Serif", serif;
     --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
   }
@@ -123,6 +125,9 @@
   .ck-group .eyebrow { display: block; margin-bottom: 6px; }
   .ck-group ul { margin: 0; padding-left: 18px; }
   .ck-group li { margin: 0 0 5px; }
+  .ck-group.right, .ck-group.right .eyebrow, .ck-verdict.right { color: var(--right); }
+  .ck-group.wrong, .ck-group.wrong .eyebrow, .ck-verdict.wrong { color: var(--wrong); }
+  .ck-group.right li::marker, .ck-group.wrong li::marker { color: currentColor; }
   .ck-better { margin: 0; padding: 2px 0 2px 14px; border-left: 2px solid var(--ink); font: 400 15px/1.6 var(--serif); }
   .ck-again { display: block; width: 100%; margin-top: 12px; }
   .tbl { margin: 12px 0 14px; overflow-x: auto; }
@@ -265,9 +270,9 @@
       ' "better":"their answer rewritten so it keeps what was right and fixes the rest: first person, spoken British English, no more than 90 words"}'
     ].filter(function (x) { return x !== null; }).join('\n');
   }
-  function list(title, items) {
+  function list(title, items, cls) {
     items = (items || []).filter(function (x) { return typeof x === 'string' && x.trim(); });
-    return items.length ? '<div class="ck-group"><span class="eyebrow">' + title + '</span><ul>' + items.map(function (x) { return '<li>' + esc(nb(x)) + '</li>'; }).join('') + '</ul></div>' : '';
+    return items.length ? '<div class="ck-group' + (cls ? ' ' + cls : '') + '"><span class="eyebrow">' + title + '</span><ul>' + items.map(function (x) { return '<li>' + esc(nb(x)) + '</li>'; }).join('') + '</ul></div>' : '';
   }
   function mountMine(slot) {
     if (!sample || !slot || slot.firstChild) return;
@@ -298,8 +303,8 @@
     function result(text, r) {
       var v = { correct: 'Correct.', partly: 'Partly right.', not_yet: 'Not yet.' }[r.verdict] || 'Checked.';
       slot.innerHTML = '<div class="box checked"><span class="tag">Your answer, checked</span>' +
-        '<p class="ck-yours">' + esc(text) + '</p><p class="ck-verdict">' + v + '</p>' +
-        list('What you got right', r.right) + list('What you missed', r.missed) + list('What was wrong', r.wrong) +
+        '<p class="ck-yours">' + esc(text) + '</p><p class="ck-verdict ' + ({ correct: 'right', not_yet: 'wrong' }[r.verdict] || '') + '">' + v + '</p>' +
+        list('What you got right', r.right, 'right') + list('What you missed', r.missed) + list('What was wrong', r.wrong, 'wrong') +
         (typeof r.better === 'string' && r.better.trim() ? '<div class="ck-group"><span class="eyebrow">Say it like this</span><p class="ck-better">' + esc(nb(r.better)) + '</p></div>' : '') +
         '</div><button class="btn sm ck-again" data-a="again">Edit and check again</button>';
       slot.querySelector('[data-a=again]').addEventListener('click', function () { form(draft); slot.querySelector('textarea').focus(); });
