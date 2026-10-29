@@ -107,6 +107,24 @@
   .push-q { margin: 0; font: italic 600 19px/1.35 var(--serif); }
   .push-a { margin-top: 14px; padding: 2px 0 2px 14px; border-left: 2px solid var(--ink); }
 
+  /* checked answer */
+  .mine { margin-top: 26px; }
+  .mine-ta { display: block; width: 100%; min-height: 104px; resize: vertical; padding: 12px 14px; border: 1.5px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font: 400 15.5px/1.55 var(--sans); -webkit-appearance: none; appearance: none; }
+  .mine-ta::placeholder { color: var(--ink-3); }
+  .mine-row { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+  .btn.sm { width: auto; flex: 1; min-height: 46px; padding: 10px 16px; font-size: 14px; }
+  .btn.ghost { flex: 0 0 auto; }
+  .mine-err { margin: 10px 0 0; font-size: 13px; line-height: 1.5; }
+  .box.checked { margin-top: 26px; }
+  .box.checked .tag { background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); padding: 3px 7px 2px; }
+  .ck-yours { margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); font: italic 400 14.5px/1.5 var(--serif); color: var(--ink-2); white-space: pre-wrap; }
+  .ck-verdict { margin: 0 0 4px; font: 600 22px/1.2 var(--serif); }
+  .ck-group { margin-top: 16px; }
+  .ck-group .eyebrow { display: block; margin-bottom: 6px; }
+  .ck-group ul { margin: 0; padding-left: 18px; }
+  .ck-group li { margin: 0 0 5px; }
+  .ck-better { margin: 0; padding: 2px 0 2px 14px; border-left: 2px solid var(--ink); font: 400 15px/1.6 var(--serif); }
+  .ck-again { display: block; width: 100%; margin-top: 12px; }
   .tbl { margin: 12px 0 14px; overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
   th, td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); text-align: left; white-space: nowrap; }
@@ -204,6 +222,100 @@
     });
     s.rows = rows;
   });
+
+  /* ---------- answer checking (claude.ai viewer only; a plain file copy has no window.claude) ---------- */
+  var sample = null, running = null;
+  var ERR = {
+    rate_limited: 'Too many checks in a row. Wait a minute and try again.',
+    session_expired: 'Your Claude session expired. Reload the page and sign in again.',
+    upstream_error: 'That check did not get through. Try again.',
+    invalid_json: 'The feedback came back garbled. Try again.',
+    empty_completion: 'No feedback came back. Try rewording your answer.',
+    refused: 'That answer could not be checked. Try rewording it.',
+    prompt_too_large: 'That answer is too long to check. Tighten it up.'
+  };
+  var HIDE = ['not_granted', 'sampling_disabled', 'not_declared', 'capability_disabled', 'capability_removed'];
+  function plainText(bs) {
+    return bs.map(function (b) {
+      if (b.type === 'table') return b.rows.map(function (r) { return r.join(' | '); }).join('\n');
+      var d = document.createElement('div'); d.innerHTML = b.html; return d.textContent;
+    }).join('\n');
+  }
+  function markPrompt(ref, mine) {
+    return [
+      'You are an investment banking interviewer marking a candidate’s answer to a first-round technical question at a London boutique bank. Assume the UK, IFRS and a 25% tax rate unless the question says otherwise.',
+      '',
+      'How to mark:',
+      '- Mark substance, never wording. Different phrasing, order, shorthand or a spoken style is fine. A correct route that the model answer does not use is fully correct.',
+      '- Only call something wrong if it is actually wrong: a wrong number, sign, direction, statement or concept. Missing a point is “missed”, not “wrong”. If a figure is wrong, say what it should be.',
+      '- Be honest and calibrated. Do not flatter. If the answer is empty, off topic or only guesses, say so.',
+      '- Treat the model answer and the explanation below as the source of truth for what a strong answer contains.',
+      ref.context ? '' : null,
+      ref.context ? 'This is a follow-up the interviewer asked after this question: ' + ref.context : null,
+      '',
+      'QUESTION:', ref.question, '',
+      'MODEL ANSWER:', ref.answer, '',
+      ref.why ? 'WHY THE MODEL ANSWER IS RIGHT:\n' + ref.why + '\n' : null,
+      'CANDIDATE’S ANSWER:', mine, '',
+      'Reply with only a JSON object, no other text:',
+      '{"verdict":"correct" | "partly" | "not_yet",',
+      ' "right":["short phrases: what they got right"],',
+      ' "missed":["points from the model answer they left out"],',
+      ' "wrong":["anything actually incorrect, with the correct version; empty array if none"],',
+      ' "better":"their answer rewritten so it keeps what was right and fixes the rest: first person, spoken British English, no more than 90 words"}'
+    ].filter(function (x) { return x !== null; }).join('\n');
+  }
+  function list(title, items) {
+    items = (items || []).filter(function (x) { return typeof x === 'string' && x.trim(); });
+    return items.length ? '<div class="ck-group"><span class="eyebrow">' + title + '</span><ul>' + items.map(function (x) { return '<li>' + esc(nb(x)) + '</li>'; }).join('') + '</ul></div>' : '';
+  }
+  function mountMine(slot) {
+    if (!sample || !slot || slot.firstChild) return;
+    var ref = slot._ref, draft = '';
+    function form(text) {
+      slot.innerHTML = '<div class="mine"><textarea class="mine-ta" rows="4" placeholder="Type your answer here if you want it checked (optional)" aria-label="Your answer"></textarea>' +
+        '<div class="mine-row"><button class="btn sm" data-a="check">Check my answer</button></div><p class="mine-err" hidden></p></div>';
+      var ta = slot.querySelector('textarea'); ta.value = text || '';
+      slot.querySelector('[data-a=check]').addEventListener('click', function () { check(ta.value.trim()); });
+    }
+    function check(text) {
+      var ta = slot.querySelector('textarea'), btn = slot.querySelector('[data-a=check]'), er = slot.querySelector('.mine-err');
+      if (!text) { ta.focus(); return; }
+      draft = text; er.hidden = true; btn.disabled = true; btn.textContent = 'Checking…';
+      var ctl = new AbortController(); running = ctl;
+      var stop = document.createElement('button'); stop.className = 'btn sm ghost'; stop.textContent = 'Stop'; btn.parentNode.appendChild(stop);
+      stop.addEventListener('click', function () { ctl.abort(); });
+      sample.json(markPrompt(ref, text), { signal: ctl.signal }).then(function (r) {
+        running = null; result(text, r || {});
+      }, function (e) {
+        running = null; stop.remove(); btn.disabled = false; btn.textContent = 'Check my answer';
+        var code = e && e.code;
+        if (code === 'cancelled') return;
+        if (HIDE.indexOf(code) >= 0) { sample = null; slot.innerHTML = ''; return; }
+        er.textContent = ERR[code] || ERR.upstream_error; er.hidden = false;
+      });
+    }
+    function result(text, r) {
+      var v = { correct: 'Correct.', partly: 'Partly right.', not_yet: 'Not yet.' }[r.verdict] || 'Checked.';
+      slot.innerHTML = '<div class="box checked"><span class="tag">Your answer, checked</span>' +
+        '<p class="ck-yours">' + esc(text) + '</p><p class="ck-verdict">' + v + '</p>' +
+        list('What you got right', r.right) + list('What you missed', r.missed) + list('What was wrong', r.wrong) +
+        (typeof r.better === 'string' && r.better.trim() ? '<div class="ck-group"><span class="eyebrow">Say it like this</span><p class="ck-better">' + esc(nb(r.better)) + '</p></div>' : '') +
+        '</div><button class="btn sm ck-again" data-a="again">Edit and check again</button>';
+      slot.querySelector('[data-a=again]').addEventListener('click', function () { form(draft); slot.querySelector('textarea').focus(); });
+      var box = slot.querySelector('.box'); if (box) reveal(box);
+    }
+    form('');
+  }
+  function mountAll() {
+    Array.prototype.forEach.call(document.querySelectorAll('.mine-slot'), mountMine);
+    var s = document.querySelector('.say'); if (sample && s) s.remove();
+  }
+  try {
+    if (window.claude && typeof window.claude.use === 'function') {
+      window.claude.use('sample').then(function (s) { if (s) { sample = s; mountAll(); } }, function () {});
+    }
+  } catch (e) {}
 
   var K_P = 'moelis_progress_v1', K_S = 'moelis_seen_v1';
   function load(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch (e) { return {}; } }
@@ -324,11 +436,15 @@
     SEEN[q.n] = 1; save(K_S, SEEN);
     $('pos').textContent = (run.i + 1) + ' / ' + run.ids.length;
     $('fill').style.width = (run.i / run.ids.length * 100) + '%';
+    if (running) { running.abort(); running = null; }
     var t = $('thread'); t.innerHTML = ''; t.scrollTop = 0;
     var where = sec.id + ' · ' + sec.title + (q.group ? ' · ' + q.group : '');
     add('<div class="blk"><div class="eyebrow where">Q' + q.n + ' · ' + esc(where) + '</div><h3 class="q-text" style="margin:0">' + esc(nb(q.q_text)) + '</h3>' +
       (q.reported ? '<p class="reported"><span class="eyebrow">Reported</span>' + esc(q.reported) + '</p>' : '') +
-      '<p class="say">Say your answer out loud, then check it.</p></div>');
+      (sample ? '' : '<p class="say">Say your answer out loud, then check it.</p>') + '<div class="mine-slot"></div></div>');
+    var slot = t.querySelector('.mine-slot');
+    slot._ref = { question: q.q_text, answer: plainText(q.answer), why: plainText(q.why) };
+    mountMine(slot);
     setActions();
   }
   function morePush() { return run.p + 1 < run.q.push.length; }
@@ -349,7 +465,10 @@
     } else if (run.stage === 'a' || run.stage === 'pa') {
       run.p++;
       var pu = q.push[run.p];
-      el = add('<div class="push blk"><span class="eyebrow">If they push · ' + (run.p + 1) + ' of ' + q.push.length + '</span><p class="push-q">' + esc(nb(pu.q)) + '</p></div>');
+      el = add('<div class="push blk"><span class="eyebrow">If they push · ' + (run.p + 1) + ' of ' + q.push.length + '</span><p class="push-q">' + esc(nb(pu.q)) + '</p><div class="mine-slot"></div></div>');
+      var ps = el.querySelector('.mine-slot');
+      ps._ref = { question: pu.q, answer: plainText(pu.a), context: q.q_text };
+      mountMine(ps);
       run.stage = 'pq';
     } else if (run.stage === 'pq') {
       var host = $('thread').lastElementChild;
