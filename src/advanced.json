@@ -1,0 +1,2253 @@
+{
+ "sections": [
+  {
+   "id": "01",
+   "title": "Accounting",
+   "intro": "These more advanced questions cover topics like deferred tax assets and liabilities and how to actually project a company’s financial statements in an operating model. You may get some of these in investment banking interviews, but they’re more common if you’ve had significant finance experience or you’re interviewing for private equity, or with a more technical group."
+  },
+  {
+   "id": "02",
+   "title": "Equity Value and Enterprise Value",
+   "intro": "These more advanced questions cover some of the “problems” with the traditional formula for Enterprise Value, as well as details about book value and market value. You’re not likely to get these in the standard entry-level investment banking interview, but it’s always good to be prepared."
+  },
+  {
+   "id": "03",
+   "title": "Valuation",
+   "intro": "These more advanced questions cover industry-specific valuation in more detail, as well as scenarios like IPO valuation, M&A premiums, and future share price analysis that are not likely to come up in entry-level interviews – but which could come up if you’re going for more advanced positions."
+  },
+  {
+   "id": "04",
+   "title": "DCF and WACC",
+   "intro": "These more advanced questions cover how you use a DCF “in real life” and some of the complexities that arise when you’re using it to value real companies. Most of these are more likely if you’re experienced and are interviewing for other investment banking or private equity positions."
+  },
+  {
+   "id": "05",
+   "title": "Merger Models",
+   "intro": "These more advanced questions cover topics like the accounting treatment of M&A deals, deferred tax assets and liabilities, and different purchase methods like a stock purchase, asset purchase, and Section 338(h)(10) election. You’re unlikely to get these in entry-level interviews, but you never know…"
+  },
+  {
+   "id": "06",
+   "title": "Leveraged Buyouts",
+   "intro": "Some of these questions are very obscure. This section is most applicable if you’re interviewing for PE jobs, or if you have a lot of LBO experience on your resume and you really need to know the in’s and out’s of LBO models. Note that there is a lot of overlap between Merger Model and LBO Model questions, because many of the elements in a Merger Model like Purchase Price Allocation, Deferred Tax Assets / Liabilities, and the creation of Goodwill work the same way in both models. Rather than repeating everything here, I would just point you to the Advanced Merger Model section if you want to review those concepts."
+  }
+ ],
+ "questions": [
+  {
+   "label": "A1",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "How is GAAP accounting different from tax accounting?",
+   "answer": [
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "GAAP is accrual-based but tax is cash-based."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "GAAP uses straight-line depreciation or a few other methods whereas tax accounting is different (accelerated depreciation)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "GAAP is more complex and more accurately tracks assets/liabilities whereas tax accounting is only concerned with revenue/expenses in the current period and what income tax you owe."
+    }
+   ]
+  },
+  {
+   "label": "A2",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "What are deferred tax assets/liabilities and how do they arise?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "They arise because of temporary differences between what a company can deduct for cash tax purposes vs. what they can deduct for book tax purposes."
+    },
+    {
+     "type": "p",
+     "html": "Deferred Tax Liabilities arise when you have a tax expense on the Income Statement but haven’t actually paid that tax in cold, hard cash yet; Deferred Tax Assets arise when you pay taxes in cash but haven’t expensed them on the Income Statement yet."
+    },
+    {
+     "type": "p",
+     "html": "The most common way they occur is with asset write-ups and write-downs in M&amp;A deals – an asset write-up will produce a deferred tax liability while a write-down will produce a deferred tax asset (see the Merger Model section for more on this)."
+    }
+   ]
+  },
+  {
+   "label": "A3",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Walk me through how you create a revenue model for a company.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "There are 2 ways you could do this: a <b>bottoms-up build</b> and a <b>tops-down build</b>."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "<b>Bottoms-Up:</b> Start with individual products / customers, estimate the average sale value or customer value, and then the growth rate in sales and sale values to tie everything together."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "<b>Tops-Down:</b> Start with “big-picture” metrics like overall market size, then estimate the company’s market share and how that will change in coming years, and multiply to get to their revenue."
+    },
+    {
+     "type": "p",
+     "html": "Of these two methods, <b>bottoms-up</b> is more common and is taken more seriously because estimating “big-picture” numbers is almost impossible."
+    }
+   ]
+  },
+  {
+   "label": "A4",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Walk me through how you create an expense model for a company.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "To do a true bottoms-up build, you start with each different department of a company, the # of employees in each, the average salary, bonuses, and benefits, and then make assumptions on those going forward."
+    },
+    {
+     "type": "p",
+     "html": "Usually you assume that the number of employees is tied to revenue, and then you assume growth rates for salary, bonuses, benefits, and other metrics."
+    },
+    {
+     "type": "p",
+     "html": "Cost of Goods Sold should be tied directly to Revenue and each “unit” produced should incur an expense."
+    },
+    {
+     "type": "p",
+     "html": "Other items such as rent, Capital Expenditures, and miscellaneous expenses are either linked to the company’s internal plans for building expansion plans (if they have them), or to Revenue for a more simple model."
+    }
+   ]
+  },
+  {
+   "label": "A5",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Let’s say we’re trying to create these models but don’t have enough information or the company doesn’t tell us enough in its filings – what do we do?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Use estimates. For the revenue if you don’t have enough information to look at separate product lines or divisions of the company, you can just assume a simple growth rate into future years."
+    },
+    {
+     "type": "p",
+     "html": "For the expenses, if you don’t have employee-level information then you can just assume that major expenses like SG&amp;A are a percent of revenue and carry that assumption forward."
+    }
+   ]
+  },
+  {
+   "label": "A6",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Walk me through the major items in Shareholders’ Equity.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Common items include:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "<b>Common Stock</b> – Simply the par value of however much stock the company has issued."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "<b>Retained Earnings</b> – How much of the company’s Net Income it has “saved up” over time."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "<b>Additional Paid in Capital</b> – This keeps track of how much stock-based compensation has been issued and how much new stock employees exercising options have created. It also includes how much over par value a company raises in an IPO or other equity offering."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "<b>Treasury Stock</b> – The dollar amount of shares that the company has bought back."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "<b>Accumulated Other Comprehensive Income</b> – This is a “catch-all” that includes other items that don’t fit anywhere else, like the effect of foreign currency exchange rates changing."
+    }
+   ]
+  },
+  {
+   "label": "A7",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Walk me through what flows into Retained Earnings.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Retained Earnings = Old Retained Earnings Balance + Net Income – Dividends Issued If you’re calculating Retained Earnings for the current year, take last year’s Retained Earnings number, add this year’s Net Income, and subtract however much the company paid out in dividends."
+    }
+   ]
+  },
+  {
+   "label": "A8",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Walk me through what flows into Additional Paid-In Capital (APIC).",
+   "answer": [
+    {
+     "type": "p",
+     "html": "APIC = Old APIC + Stock-Based Compensation + Stock Created by Option Exercises"
+    },
+    {
+     "type": "p",
+     "html": "If you’re calculating it, take the balance from last year, add this year’s stock-based compensation number, and then add in however much new stock was created by employees exercising options this year."
+    }
+   ]
+  },
+  {
+   "label": "A9",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "What is the Statement of Shareholders’ Equity and why do we use it?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "This statement shows everything we went through above – the major items that comprise Shareholders’ Equity, and how we arrive at each of them using the numbers elsewhere in the statement."
+    },
+    {
+     "type": "p",
+     "html": "You don’t use it too much, but it can be helpful for analyzing companies with unusual stock-based compensation and stock option situations."
+    }
+   ]
+  },
+  {
+   "label": "A10",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "What are examples of non-recurring charges we need to add back to a company’s EBIT / EBITDA when looking at its financial statements?",
+   "answer": [
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "Restructuring Charges"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "Goodwill Impairment"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Asset Write-Downs"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "Bad Debt Expenses"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "Legal Expenses"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "Disaster Expenses"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 7,
+     "html": "Change in Accounting Procedures"
+    },
+    {
+     "type": "p",
+     "html": "Note that to be an “add-back” or “non-recurring” charge for EBITDA / EBIT purposes, it <b>needs to affect Operating Income on the Income Statement</b>. So if you have one of these charges “below the line” then you do not add it back for the EBITDA / EBIT calculation."
+    },
+    {
+     "type": "p",
+     "html": "Also note that you do add back Depreciation, Amortization, and sometimes Stock-Based Compensation for EBITDA / EBIT, but that these are not “non-recurring charges” because all companies have them every year – these are just <b>non-cash charges</b>."
+    }
+   ]
+  },
+  {
+   "label": "A11",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "How do you project Balance Sheet items like Accounts Receivable and Accrued Expenses in a 3-statement model?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Normally you make very simple assumptions here and assume these are percentages of revenue, operating expenses, or cost of goods sold. Examples:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "<b>Accounts Receivable:</b> % of revenue."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "<b>Deferred Revenue:</b> % of revenue."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "<b>Accounts Payable:</b> % of COGS."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "<b>Accrued Expenses:</b> % of operating expenses or SG&amp;A."
+    },
+    {
+     "type": "p",
+     "html": "Then you either carry the same percentages across in future years or assume slight changes depending on the company."
+    }
+   ]
+  },
+  {
+   "label": "A12",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "How should you project Depreciation & Capital Expenditures?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The simple way: project each one as a % of revenue or previous PP&amp;E balance."
+    },
+    {
+     "type": "p",
+     "html": "The more complex way: create a PP&amp;E schedule that splits out different assets by their useful lives, assumes straight-line depreciation over each asset’s useful life, and then assumes capital expenditures based on what the company has invested historically."
+    }
+   ]
+  },
+  {
+   "label": "A13",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "How do Net Operating Losses (NOLs) affect a company’s 3 statements?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The “quick and dirty” way to do this: reduce the Taxable Income by the portion of the NOLs that you can use each year, apply the same tax rate, and then subtract that new Tax number from your old Pretax Income number (which should stay the same)."
+    },
+    {
+     "type": "p",
+     "html": "The way you <b>should</b> do this: create a book vs. cash tax schedule where you calculate the Taxable Income based on NOLs, and then look at what you would pay in taxes <b>without</b> the NOLs. Then you book the difference as an increase to the Deferred Tax Liability on the Balance Sheet."
+    },
+    {
+     "type": "p",
+     "html": "This method reflects the fact that you’re saving on cash flow – since the DTL, a liability, is rising – but correctly separates the NOL impact into book vs. cash taxes."
+    }
+   ]
+  },
+  {
+   "label": "A14",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "What’s the difference between capital leases and operating leases?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Operating leases are used for short-term leasing of equipment and property, and do not involve ownership of anything. Operating lease expenses show up as operating expenses on the Income Statement."
+    },
+    {
+     "type": "p",
+     "html": "Capital leases are used for longer-term items and give the lessee ownership rights; they depreciate and incur interest payments, and are counted as debt."
+    },
+    {
+     "type": "p",
+     "html": "A lease is a capital lease if any one of the following 4 conditions is true:"
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "If there’s a transfer of ownership at the end of the term."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "If there’s an option to purchase the asset at a bargain price at the end of the term."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "If the term of the lease is greater than 75% of the useful life of the asset."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 4,
+     "html": "If the present value of the lease payments is greater than 90% of the asset’s fair market value."
+    }
+   ]
+  },
+  {
+   "label": "A15",
+   "section": "01",
+   "section_title": "Accounting",
+   "question": "Why would the Depreciation & Amortization number on the Income Statement be different from what’s on the Cash Flow Statement?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "This happens if D&amp;A is embedded in other Income Statement line items. When this happens, you need to use the Cash Flow Statement number to arrive at EBITDA because otherwise you’re undercounting D&amp;A."
+    }
+   ]
+  },
+  {
+   "label": "A16",
+   "section": "02",
+   "section_title": "Equity Value and Enterprise Value",
+   "question": "Are there any problems with the Enterprise Value formula you just gave me?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Yes – it’s too simple. There are lots of other things you need to add into the formula with real companies:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "Net Operating Losses – Should be valued and arguably added in, similar to cash."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "Long-Term Investments – These should be counted, similar to cash."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Equity Investments – Any investments in other companies should also be added in, similar to cash (though they might be discounted)."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "Capital Leases – Like debt, these have interest payments – so they should be added in like debt."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "(Some) Operating Leases – Sometimes you need to convert operating leases to capital leases and add them as well."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "Pension Obligations – Sometimes these are counted as debt as well."
+    },
+    {
+     "type": "p",
+     "html": "So a more “correct” formula would be Enterprise Value = Equity Value – Cash + Debt + Preferred Stock + Minority Interest – NOLs – Investments + Capital Leases + Pension Obligations…"
+    },
+    {
+     "type": "p",
+     "html": "In interviews, usually you can get away with saying “Enterprise Value = Equity Value – Cash + Debt + Preferred Stock + Minority Interest”"
+    },
+    {
+     "type": "p",
+     "html": "I mention this here because in more advanced interviews you might get questions on this topic."
+    }
+   ]
+  },
+  {
+   "label": "A17",
+   "section": "02",
+   "section_title": "Equity Value and Enterprise Value",
+   "question": "Should you use the book value or market value of each item when calculating Enterprise Value?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Technically, you should use market value for everything. In practice, however, you usually use market value only for the Equity Value portion, because it’s almost impossible to establish market values for the rest of the items in the formula – so you just take the numbers from the company’s Balance Sheet."
+    }
+   ]
+  },
+  {
+   "label": "A18",
+   "section": "02",
+   "section_title": "Equity Value and Enterprise Value",
+   "question": "What percentage dilution in Equity Value is “too high?”",
+   "answer": [
+    {
+     "type": "p",
+     "html": "There’s no strict “rule” here but most bankers would say that anything over 10% is odd. If your basic Equity Value is $100 million and the diluted Equity Value is $115 million, you might want to check your calculations – it’s not necessarily wrong, but over 10% dilution is unusual for most companies."
+    }
+   ]
+  },
+  {
+   "label": "A19",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "How do you value banks and financial institutions differently from other companies?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You mostly use the same methodologies, <b>except:</b>"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "You look at <b>P / E</b> and <b>P / BV</b> (Book Value) multiples rather than EV / Revenue, EV / EBITDA, and other “normal” multiples, since banks have unique capital structures."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "You pay more attention to bank-specific metrics like <b>NAV</b> (Net Asset Value) and you might screen companies and precedent transactions based on those instead."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Rather than a DCF, you use a <b>Dividend Discount Model</b> (DDM) which is similar but is based on the present value of the company’s dividends rather than its free cash flows."
+    },
+    {
+     "type": "p",
+     "html": "You need to use these methodologies and multiples because interest is a critical component of a bank’s revenue and because debt is part of its business model rather than just a way to finance acquisitions or expand the business."
+    }
+   ]
+  },
+  {
+   "label": "A20",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Walk me through an IPO valuation for a company that’s about to go public.",
+   "answer": [
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Unlike normal valuations, for an IPO valuation we <b>only care about public company comparables</b>."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "After picking the public company comparables we decide on the most relevant multiple to use and then estimate our company’s Enterprise Value based on that."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Once we have the Enterprise Value, we work backward to get to Equity Value and also subtract the IPO proceeds because this is “new” cash."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 4,
+     "html": "Then we divide by the total number of shares (old and newly created) to get its per-share price. When people say “An IPO <i>priced</i> at…” this is what they’re referring to."
+    },
+    {
+     "type": "p",
+     "html": "If you were using P / E or any other “Equity Value-based multiple” for the multiple in step #2 here, then you would get to Equity Value instead and then subtract the IPO proceeds from there."
+    }
+   ]
+  },
+  {
+   "label": "A21",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "I’m looking at financial data for a public company comparable, and it’s April (Q2) right now. Walk me through how you would “calendarize” this company’s financial statements to show the Trailing Twelve Months as opposed to just the last Fiscal Year.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The “formula” to calendarize financial statements is as follows:"
+    },
+    {
+     "type": "p",
+     "html": "TTM = Most Recent Fiscal Year + New Partial Period – Old Partial Period"
+    },
+    {
+     "type": "p",
+     "html": "So in the example above, we would take the company’s Q1 numbers, add the most recent fiscal year’s numbers, and then <i>subtract</i> the Q1 numbers from that most recent fiscal year."
+    },
+    {
+     "type": "p",
+     "html": "For US companies you can find these quarterly numbers in the 10-Q; for international companies they’re in the “interim” reports."
+    }
+   ]
+  },
+  {
+   "label": "A22",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Walk me through an M&A premiums analysis.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The purpose of this analysis is to look at similar transactions and see the <b>premiums</b> that buyers have paid to sellers’ share prices when acquiring them. For example, if a company is trading at $10.00/share and the buyer acquires it for $15.00/share, that’s a 50% premium."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "First, select the precedent transactions based on industry, date (past 2-3 years for example), and size (example: over $1 billion market cap)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "For each transaction, get the seller’s share price 1 day, 20 days, and 60 days before the transaction was announced (you can also look at even longer intervals, or 30 days, 45 days, etc.)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Then, calculate the 1-day premium, 20-day premium, etc. by dividing the per- share purchase price by the appropriate share prices on each day."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 4,
+     "html": "Get the medians for each set, and then apply them to your company’s current share price, share price 20 days ago, etc. to estimate how much of a premium a buyer might pay for it."
+    },
+    {
+     "type": "p",
+     "html": "Note that you <b>only</b> use this analysis when valuing public companies because private companies don’t have share prices. Sometimes the set of companies here is exactly the same as your set of precedent transactions but typically it is <b>broader.</b>"
+    }
+   ]
+  },
+  {
+   "label": "A23",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Walk me through a future share price analysis.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The purpose of this analysis is to <b>project</b> what a company’s share price might be 1 or 2 years from now and then <b>discount it back to its present value</b>."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Get the median historical (usually TTM) P / E of your public company comparables."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "Apply this P / E multiple to your company’s 1-year forward or 2-year forward projected EPS to get its implied future share price."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Then, discount this back to its present value by using a discount rate in-line with the company’s Cost of Equity figures."
+    },
+    {
+     "type": "p",
+     "html": "You normally look at a range of P / E multiples as well as a range of discount rates for this type of analysis, and make a sensitivity table with these as inputs."
+    }
+   ]
+  },
+  {
+   "label": "A24",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Both M&A premiums analysis and precedent transactions involve looking at previous M&A transactions. What’s the difference in how we select them?",
+   "answer": [
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "All the sellers in the M&amp;A premiums analysis must be public."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "Usually we use a <b>broader</b> set of transactions for M&amp;A premiums – we might use fewer than 10 precedent transactions but we might have dozens of M&amp;A premiums. The industry and financial screens are usually less stringent."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Aside from those, the screening criteria is similar – financial, industry, geography, and date."
+    }
+   ]
+  },
+  {
+   "label": "A25",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Walk me through a Sum-of-the-Parts analysis.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "In a Sum-of-the-Parts analysis, you value each division of a company using separate comparables and transactions, get to separate multiples, and then add up each division’s value to get the total for the company. Example:"
+    },
+    {
+     "type": "p",
+     "html": "We have a manufacturing division with $100 million EBITDA, an entertainment division with $50 million EBITDA and a consumer goods division with $75 million EBITDA. We’ve selected comparable companies and transactions for each division, and the median multiples come out to 5x EBITDA for manufacturing, 8x EBITDA for entertainment, and 4x EBITDA for consumer goods."
+    },
+    {
+     "type": "p",
+     "html": "Our calculation would be $100 * 5x + $50 * 8x + $75 * 4x = $1.2 billion for the company’s total value."
+    }
+   ]
+  },
+  {
+   "label": "A26",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "How do you value Net Operating Losses and take them into account in a valuation?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You value NOLs based on how much they’ll save the company in taxes in future years, and then take the present value of the sum of tax savings in future years. Two ways to assess the tax savings in future years:"
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Assume that a company can use its NOLs to completely offset its taxable income until the NOLs run out."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "In an acquisition scenario, use Section 382 and multiply the adjusted long-term rate (<u>http://pmstax.com/afr/exemptAFR.shtml</u>) by the equity purchase price of the seller to determine the maximum allowed NOL usage in each year – and then use that to figure out the offset to taxable income."
+    },
+    {
+     "type": "p",
+     "html": "You might <i>look</i> at NOLs in a valuation but you rarely add them in – if you did, they would be similar to cash and you would subtract NOLs to go from Equity Value to Enterprise Value, and vice versa."
+    }
+   ]
+  },
+  {
+   "label": "A27",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "I have a set of public company comparables and need to get the projections from equity research. How do I select which report to use?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "This varies by bank and group, but two common methods:"
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "You pick the report with the most detailed information."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "You pick the report with numbers in the middle of the range."
+    },
+    {
+     "type": "p",
+     "html": "Note that you <b>do not</b> pick reports based on which bank they’re coming from. So if you’re at Goldman Sachs, you would not pick all Goldman Sachs equity research – in fact that would be bad because then your valuation would not be objective."
+    }
+   ]
+  },
+  {
+   "label": "A28",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "I have a set of precedent transactions but I’m missing information like EBITDA for a lot of the companies – how can I find it if it’s not available via public sources?",
+   "answer": [
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Search online and see if you can find press releases or articles in the financial press with these numbers."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "Failing that, look in equity research for the <b>buyer</b> around the time of the transaction and see if any of the analysts estimate the seller’s numbers."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Also look on online sources like Capital IQ and Factset and see if any of them disclose numbers or give estimates."
+    }
+   ]
+  },
+  {
+   "label": "A29",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "How far back and forward do we usually go for public company comparable and precedent transaction multiples?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Usually you look at the TTM (Trailing Twelve Months) period for both sets, and then you look forward either 1 or 2 years. You’re more likely to look backward more than 1 year and go forward more than 2 years for public company comparables; for precedent transactions it’s odd to go forward more than 1 year because your information is more limited."
+    }
+   ]
+  },
+  {
+   "label": "A30",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "I have one company with a 40% EBITDA margin trading at 8x EBITDA, and another company with a 10% EBITDA margin trading at 16x EBITDA. What’s the problem with comparing these two valuations directly?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "There’s no “rule” that says this is wrong or not allowed, but it can be misleading to compare companies with dramatically different margins. Due to basic arithmetic, the 40% margin company will usually have a lower multiple – whether or not its actual value is lower."
+    },
+    {
+     "type": "p",
+     "html": "In this situation, we might consider screening based on margins and remove the outliers – you would never try to “normalize” the EBITDA multiples based on margins."
+    }
+   ]
+  },
+  {
+   "label": "A31",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Walk me through how we might value an oil & gas company and how it’s different from a “standard” company.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You use the same methodologies, except:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "You look at industry-specific multiples like P / MCFE and P / NAV in addition to the more standard ones."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "You need to project the prices of commodities like oil and natural gas, and also the company’s reserves to determine its revenue and cash flows in future years."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Rather than a DCF, you use a <b>NAV (Net Asset Value)</b> model – it’s similar, but everything flows from the company’s <b>reserves</b> rather than simple revenue growth / EBITDA margin projections."
+    },
+    {
+     "type": "p",
+     "html": "In addition to all of the above, there are also some accounting complications with energy companies and you need to think about what a “proven” reserve is vs. what is more speculative."
+    }
+   ]
+  },
+  {
+   "label": "A32",
+   "section": "03",
+   "section_title": "Valuation",
+   "question": "Walk me through how we would value a REIT (Real Estate Investment Trust) and how it differs from a “normal” company.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Similar to energy, real estate is asset-intensive and a company’s value depends on how much cash flow specific properties generate."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "You look at Price / FFO (Funds From Operations) and Price / AFFO (Adjusted Funds From Operations), which add back Depreciation and subtract gains on property sales; NAV (Net Asset Value) is also important."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "You <b>value properties</b> by dividing <b>Net Operating Income (NOI)</b> (Property’s Gross Income – Operating Expenses) by the <b>capitalization rate</b> (based on market data)."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "<b>Replacement Valuation</b> is more common because you can actually estimate the cost of buying new land and building new properties."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "A DCF is still a DCF, but it flows from specific properties and it might be useless depending on what kind of company you’re valuing."
+    }
+   ]
+  },
+  {
+   "label": "A33",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "Explain why we would use the mid-year convention in a DCF.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You use it to represent the fact that a company’s cash flow does not come 100% at the end of each year – instead, it comes in evenly throughout each year."
+    },
+    {
+     "type": "p",
+     "html": "In a DCF <i>without</i> mid-year convention, we would use discount period numbers of 1 for the first year, 2 for the second year, 3 for the third year, and so on."
+    },
+    {
+     "type": "p",
+     "html": "<i>With</i> mid-year convention, we would instead use 0.5 for the first year, 1.5 for the second year, 2.5 for the third year, and so on."
+    }
+   ]
+  },
+  {
+   "label": "A34",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "What discount period numbers would I use for the mid-year convention if I have a stub period – e.g. Q4 of Year 1 – in my DCF?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The rule is that you divide the stub discount period by 2, and then you simply subtract 0.5 from the “normal” discount periods for the future years. Example for a Q4 stub:"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "",
+       "Q4",
+       "Year 1",
+       "Year 2",
+       "Year 3",
+       "Year 4",
+       "Year 5"
+      ],
+      [
+       "Normal Discount Periods with Stub:",
+       "0.25",
+       "1.25",
+       "2.25",
+       "3.25",
+       "4.25",
+       "5.25"
+      ],
+      [
+       "Mid-Year Discount Periods with Stub:",
+       "0.125",
+       "0.75",
+       "1.75",
+       "2.75",
+       "3.75",
+       "4.75"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "A35",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "How does the terminal value calculation change when we use the mid-year convention?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "When you’re discounting the terminal value back to the present value, you use different numbers for the discount period depending on whether you’re using the Multiples Method or Gordon Growth Method:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "<b>Multiples Method:</b> You <b>add</b> 0.5 to the final year discount number to reflect the fact that you’re assuming the company gets sold at the <b>end</b> of the year."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "<b>Gordon Growth Method:</b> You use the final year discount number as is, because you’re assuming the cash flows grow into perpetuity and that they are still received throughout the year rather than just at the end."
+    }
+   ]
+  },
+  {
+   "label": "A36",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "If I’m working with a public company in a DCF, how do I calculate its per-share value?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Once you get to Enterprise Value, ADD cash and then subtract debt, preferred stock, and minority interest (and any other debt-like items) to get to Equity Value."
+    },
+    {
+     "type": "p",
+     "html": "Then, you need to use a circular calculation that takes into account the basic shares outstanding, options, warrants, convertibles, and other dilutive securities. It’s circular because the dilution from these depends on the per-share price – but the per-share price depends on number of shares outstanding, which depends on the per-share price."
+    },
+    {
+     "type": "p",
+     "html": "To resolve this, you need to enable iterative calculations in Excel so that it can cycle through to find an approximate per-share price."
+    }
+   ]
+  },
+  {
+   "label": "A37",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "Walk me through a Dividend Discount Model (DDM) that you would use in place of a normal DCF for financial institutions.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The mechanics are the same as a DCF, but we use dividends rather than free cash flows:"
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Project out the company’s earnings, down to earnings per share (EPS)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "Assume a dividend payout ratio – what percentage of the EPS actually gets paid out to shareholders in the form of dividends – based on what the firm has done historically and how much regulatory capital it needs."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Use this to calculate dividends over the next 5-10 years."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 4,
+     "html": "Discount each dividend to its present value based on <b>Cost of Equity – NOT WACC –</b> and then sum these up."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 5,
+     "html": "Calculate terminal value based on P / E and EPS in the final year, and then discount this to its present value based on <b>Cost of Equity</b>."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 6,
+     "html": "Sum the present value of the terminal value and the present values of the dividends to get the company’s net present per-share value."
+    }
+   ]
+  },
+  {
+   "label": "A38",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "When you’re calculating WACC, let’s say that the company has convertible debt. Do you count this as debt when calculating Levered Beta for the company?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Trick question. If the convertible debt is <b>in-the-money</b> then you do not count it as debt but instead assume that it contributes to dilution, so the company’s Equity Value is higher. If it’s <b>out-of-the-money</b> then you count it as debt and use the interest rate on the convertible for Cost of Debt."
+    }
+   ]
+  },
+  {
+   "label": "A39",
+   "section": "04",
+   "section_title": "DCF and WACC",
+   "question": "We’re creating a DCF for a company that is planning to buy a factory for $100 in cash (no debt or other financing) in Year 4. Currently the present value of its Enterprise Value according to the DCF is $200. How would we change the DCF to account for the factory purchase, and what would our new Enterprise Value be?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "In this scenario, you would add CapEx spending of $100 in year 4 of the DCF, which would reduce Free Cash Flow for that year by $100. The Enterprise Value, in turn, would fall by the present value of that $100 decrease in Free Cash Flow."
+    },
+    {
+     "type": "p",
+     "html": "The actual math here is messy but you would calculate the present value by dividing $100 by ((1 + Discount Rate)^4) – the “4” just represents year 4 here. Then you would subtract this amount from the Enterprise Value."
+    }
+   ]
+  },
+  {
+   "label": "A40",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "What’s the difference between Purchase Accounting and Pooling Accounting in an M&A deal?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "In purchase accounting the seller’s shareholders’ equity number is wiped out and the premium paid over that value is recorded as Goodwill on the combined balance sheet post-acquisition. In pooling accounting, you simply combine the 2 shareholders’ equity numbers rather than worrying about Goodwill and the related items that get created."
+    },
+    {
+     "type": "p",
+     "html": "There are specific requirements for using pooling accounting, so in 99% of M&amp;A deals you will use purchase accounting."
+    }
+   ]
+  },
+  {
+   "label": "A41",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Walk me through a concrete example of how to calculate revenue synergies.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "“Let’s say that Microsoft is going to acquire Yahoo. Yahoo makes money from search advertising online, and they make a certain amount of revenue per search (RPS). Let’s say this RPS is $0.10 right now. If Microsoft acquired it, we might assume that they could boost this RPS by $0.01 or $0.02 because of their superior monetization. So to calculate the additional revenue from this synergy, we would multiply this $0.01 or $0.02 by Yahoo’s total # of searches, get the total additional revenue, and then select a margin on it to determine how much flows through to the combined company’s Operating Income.”"
+    }
+   ]
+  },
+  {
+   "label": "A42",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Walk me through an example of how to calculate expense synergies.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "“Let’s say that Microsoft still wants to acquire Yahoo!. Microsoft has 5,000 SG&amp;A-related employees, whereas Yahoo has around 1,000. Microsoft calculates that post-transaction, it will only need about 200 of Yahoo’s SG&amp;A employees, and its existing employees can take over the rest of the work. To calculate the Operating Expenses the combined company would save, we would multiply these 800 employees Microsoft is going to fire post-transaction by their average salary.”"
+    }
+   ]
+  },
+  {
+   "label": "A43",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How do you take into account NOLs in an M&A deal?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You apply Section 382 to determine how much of the seller’s NOLs are usable each year."
+    },
+    {
+     "type": "p",
+     "html": "Allowable NOLs = Equity Purchase Price * Highest of Past 3 Months’ Adjusted Long Term Rates"
+    },
+    {
+     "type": "p",
+     "html": "So if our equity purchase price were $1 billion and the highest adjusted long-term rate were 5%, then we could use $1 billion * 5% = $50 million of NOLs each year."
+    },
+    {
+     "type": "p",
+     "html": "If the seller had $250 million in NOLs, then the combined company could use $50 million of them each year for 5 years to offset its taxable income."
+    },
+    {
+     "type": "p",
+     "html": "You can look at long-term rates right here: <u>http://pmstax.com/afr/exemptAFR.shtml</u>"
+    }
+   ]
+  },
+  {
+   "label": "A44",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Why do deferred tax liabilities (DTLs) and deferred tax assets (DTAs) get created in M&A deals?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "These get created when you write up assets – both tangible and intangible – and when you write down assets in a transaction. An asset write-up creates a deferred tax liability, and an asset write-down creates a deferred tax asset."
+    },
+    {
+     "type": "p",
+     "html": "You write down and write up assets because their book value – what’s on the balance sheet – often differs substantially from their “fair market value.”"
+    },
+    {
+     "type": "p",
+     "html": "An asset write-up creates a deferred tax <i>liability</i> because you’ll have a higher depreciation expense on the new asset, which means you save on taxes in the short-term – but eventually you’ll have to pay them back, hence the liability. The opposite applies for an asset write-down and a deferred tax <i>asset</i>."
+    }
+   ]
+  },
+  {
+   "label": "A45",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How do DTLs and DTAs affect the Balance Sheet Adjustment in an M&A deal?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You take them into account with everything else when calculating the amount of Goodwill &amp; Other Intangibles to create on your pro-forma balance sheet. The formulas are as follows:"
+    },
+    {
+     "type": "p",
+     "html": "Deferred Tax Asset = Asset Write-Down * Tax Rate Deferred Tax Liability = Asset Write-Up * Tax Rate"
+    },
+    {
+     "type": "p",
+     "html": "So let’s say you were buying a company for $1 billion with half-cash and half-debt, and you had a $100 million asset write-up and a tax rate of 40%. In addition, the seller has total assets of $200 million, total liabilities of $150 million, and shareholders’ equity of $50 million."
+    },
+    {
+     "type": "p",
+     "html": "Here’s what would happen to the combined company’s balance sheet (ignoring transaction/financing fees):"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "First, you simply add the seller’s Assets and Liabilities (but NOT Shareholders’ Equity – it is wiped out) to the buyer’s to get your “initial” balance sheet. Assets are up by $200 million and Liabilities are down by $150 million."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "Then, Cash on the Assets side goes down by $500 million."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Debt on the Liabilities &amp; Equity side goes up by $500 million."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "You get a new Deferred Tax Liability of $40 million ($100 million * 40%) on the Liabilities &amp; Equity side."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "Assets are down by $300 million total and Liabilities &amp; Shareholders’ Equity are up by $690 million ($500 + $40 + $150)."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "So you need Goodwill &amp; Intangibles of $990 million on the Assets side to make both sides balance."
+    }
+   ]
+  },
+  {
+   "label": "A46",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Could you get DTLs or DTAs in an asset purchase?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "No, because in an asset purchase the book basis of assets always matches the tax basis. They get created in a stock purchase because the <b>book values</b> of assets are written up or written down, but the <b>tax values</b> are not."
+    }
+   ]
+  },
+  {
+   "label": "A47",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How do you account for DTLs in forward projections in a merger model?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You create a book vs. cash tax schedule and figure out what the company owes in taxes based on the Pretax Income on its books, and then you determine what it actually pays in cash taxes based on its NOLs and newly created amortization and depreciation expenses (from any asset write-ups)."
+    },
+    {
+     "type": "p",
+     "html": "Anytime the “cash” tax expense exceeds the “book” tax expense you record this as an decrease to the Deferred Tax Liability on the Balance Sheet; if the “book” expense is higher, then you record that as an increase to the DTL."
+    }
+   ]
+  },
+  {
+   "label": "A48",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Explain the complete formula for how to calculate Goodwill in an M&A deal.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Goodwill = Equity Purchase Price – Seller Book Value + Seller’s Existing Goodwill – Asset Write-Ups – Seller’s Existing Deferred Tax Liability + Write-Down of Seller’s Existing Deferred Tax Asset + Newly Created Deferred Tax Liability"
+    },
+    {
+     "type": "p",
+     "html": "A couple notes here:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "Seller Book Value is just the Shareholders’ Equity number."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "You <b>add</b> the Seller’s Existing Goodwill because it gets written down to $0 in an M&amp;A deal."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "You subtract the Asset Write-Ups because these are <b>additions</b> to the Assets side of the Balance Sheet – Goodwill is also an asset, so effectively you need less Goodwill to “plug the hole.”"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "Normally you assume 100% of the Seller’s existing DTL is written down."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "The seller’s existing DTA may or may not be written down completely (see the next question)."
+    }
+   ]
+  },
+  {
+   "label": "A49",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Explain why we would write down the seller’s existing Deferred Tax Asset in an M&A deal.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You write it down to reflect the fact that Deferred Tax Assets include NOLs, and that you might use these NOLs post-transaction to offset the combined entity’s taxable income."
+    },
+    {
+     "type": "p",
+     "html": "In an asset or 338(h)(10) purchase you assume that the entire NOL balance goes to $0 in the transaction, and then you write down the existing Deferred Tax Asset by this NOL write-down."
+    },
+    {
+     "type": "p",
+     "html": "In a stock purchase the formula is:"
+    },
+    {
+     "type": "p",
+     "html": "DTA Write-Down = Buyer Tax Rate * MAX(0, NOL Balance – Allowed Annual NOL Usage * Expiration Period in Years)"
+    },
+    {
+     "type": "p",
+     "html": "This formula is saying, “If we’re going to use up <b>all</b> these NOLs post transaction, let’s not write anything down. Otherwise, let’s write down the portion that we <b>cannot</b> actually use post-transaction, i.e. whatever our existing NOL balance is minus the amount we can use per year times the number of years.”"
+    }
+   ]
+  },
+  {
+   "label": "A50",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "What’s a Section 338(h)(10) election and why might a company want to use it in an M&A deal?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "A Section 338(h)(10) election blends the benefits of a stock purchase and an asset purchase:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "Legally it is a stock purchase, but accounting-wise it’s treated like an asset purchase."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "The seller is still subject to double-taxation – on its assets that have appreciated and on the proceeds from the sale."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "But the buyer receives a step-up tax basis on the new assets it acquires, and it can depreciate/amortize them so it saves on taxes."
+    },
+    {
+     "type": "p",
+     "html": "Even though the seller still gets taxed twice, buyers will often pay more in a 338(h)(10) deal because of the <b>tax-savings potential</b>. It’s particularly helpful for:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "Sellers with high NOL balances (more tax-savings for the buyer because this NOL balance will be written down completely – and so more of the excess purchase price can be allocated to asset write-ups)."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "If the company has been an S-corporation for over 10 years – in this case it doesn’t have to pay a tax on the appreciation of its assets."
+    },
+    {
+     "type": "p",
+     "html": "The requirements to use 338(h)(10) are complex and bankers don’t deal with this – that is the role of lawyers and tax accountants."
+    }
+   ]
+  },
+  {
+   "label": "A51",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "What is an exchange ratio and when would companies use it in an M&A deal?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "An exchange ratio is an alternate way of structuring a 100% stock M&amp;A deal, or any M&amp;A deal with a portion of stock involved."
+    },
+    {
+     "type": "p",
+     "html": "Let’s say you were going to buy a company for $100 million in an all-stock deal. Normally you would determine how much stock to issue by dividing the $100 million by the buyer’s stock price, and using that to get the new share count."
+    },
+    {
+     "type": "p",
+     "html": "With an exchange ratio, by contrast, you would tie the number of new shares to the buyer’s own shares – so the seller might receive 1.5 shares of the buyer’s shares for each of its shares, rather than shares worth a specific dollar amount."
+    },
+    {
+     "type": "p",
+     "html": "Buyers might prefer to do this if they believe their stock price is going to decline post- transaction – sellers, on the other hand, would prefer a fixed dollar amount in stock unless they believe the buyer’s share price will rise after the transaction."
+    }
+   ]
+  },
+  {
+   "label": "A52",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Walk me through the most important terms of a Purchase Agreement in an M&A deal.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "There are dozens, but here are the most important ones:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "<b>Purchase Price:</b> Stated as a per-share amount for public companies."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "<b>Form of Consideration:</b> Cash, Stock, Debt…"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "<b>Transaction Structure:</b> Stock, Asset, or 338(h)(10)"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "<b>Treatment of Options:</b> Assumed by the buyer? Cashed out? Ignored?"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "<b>Employee Retention:</b> Do employees have to sign non-solicit or non-compete agreements? What about management?"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "<b>Reps &amp; Warranties:</b> What must the buyer and seller claim is true about their respective businesses?"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 7,
+     "html": "<b>No-Shop / Go-Shop:</b> Can the seller “shop” this offer around and try to get a better deal, or must it stay exclusive to this buyer?"
+    }
+   ]
+  },
+  {
+   "label": "A53",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "What’s an Earnout and why would a buyer offer it to a seller in an M&A deal?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "An Earnout is a form of “deferred payment” in an M&amp;A deal – it’s most common with private companies and start-ups, and is <b>highly</b> unusual with public sellers."
+    },
+    {
+     "type": "p",
+     "html": "It is usually contingent on financial performance or other goals – for example, the buyer might say, “We’ll give you an additional $10 million in 3 years if you can hit $100 million in revenue by then.”"
+    },
+    {
+     "type": "p",
+     "html": "Buyers use it to incentivize sellers to continue to perform well and to discourage management teams from taking the money and running off to an island in the South Pacific once the deal is done."
+    }
+   ]
+  },
+  {
+   "label": "A54",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How would an accretion / dilution model be different for a private seller?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The mechanics are the same, but the transaction structure is more likely to be an asset purchase or 338(h)(10) election; private sellers also don’t have Earnings Per Share so you would only project down to Net Income on the seller’s Income Statement."
+    },
+    {
+     "type": "p",
+     "html": "Note that accretion / dilution makes no sense if you have a private <i>buyer</i> because private companies do not have Earnings Per Share."
+    }
+   ]
+  },
+  {
+   "label": "A55",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How would I calculate “break-even synergies” in an M&A deal and what does the number mean?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "To do this, you would set the EPS accretion / dilution to $0.00 and then back-solve in Excel to get the required synergies to make the deal neutral to EPS."
+    },
+    {
+     "type": "p",
+     "html": "It’s important because you want an idea of whether or not a deal “works” mathematically, and a high number for the break-even synergies tells you that you’re going to need <b>a lot</b> of cost savings or revenue synergies to make it work."
+    }
+   ]
+  },
+  {
+   "label": "A56",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Normally in an accretion / dilution model you care most about combining both companies’ Income Statements. But let’s say I want to combine all 3 financial statements – how would I do this?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You combine the Income Statements like you normally would (see the previous question on this), and then you do the following:"
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Combine the buyer’s and seller’s balance sheets (except for the seller’s Shareholders’ Equity number)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "Make the necessary Pro-Forma Adjustments (cash, debt, goodwill/intangibles, etc.)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Project the combined Balance Sheet using standard assumptions for each item (see the Accounting section)."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 4,
+     "html": "Then project the Cash Flow Statement and link everything together as you normally would with any other 3-statement model."
+    }
+   ]
+  },
+  {
+   "label": "A57",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How do you handle options, convertible debt, and other dilutive securities in a merger model?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The exact treatment depends on the terms of the Purchase Agreement – the buyer might <i>assume</i> them or it might allow the seller to “cash them out” assuming that the per-share purchase price is above the exercise prices of these dilutive securities."
+    },
+    {
+     "type": "p",
+     "html": "If you assume they’re exercised, then you calculate dilution to the equity purchase price in the same way you normally would – Treasury Stock Method for options, and assume that convertibles convert into normal shares using the conversion price."
+    }
+   ]
+  },
+  {
+   "label": "A58",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "What are the main 3 transaction structures you could use to acquire another company?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Stock Purchase, Asset Purchase, and 338(h)(10) Election. The basic differences:"
+    },
+    {
+     "type": "p",
+     "html": "<b>Stock Purchase:</b>"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "Buyer acquires <i>all</i> asset and liabilities of the seller as well as off-balance sheet items."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "The seller is taxed at the capital gains tax rate."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "The buyer receives no step-up tax basis for the newly acquired assets, and it can’t depreciate/amortize them for tax purposes."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "A Deferred Tax Liability gets created as a result of the above."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "Most common for public companies and larger private companies."
+    },
+    {
+     "type": "p",
+     "html": "<b>Asset Purchase:</b>"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "Buyer acquires only <i>certain</i> assets and assumes only <i>certain</i> liabilities of the seller and gets nothing else."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 7,
+     "html": "Seller is taxed on the amount its assets have appreciated (what the buyer is paying for each one minus its book value) and also pays a capital gains tax on the proceeds."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 8,
+     "html": "The buyer receives a step-up tax basis for the newly acquired assets, and it can depreciate/amortize them for tax purposes."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 9,
+     "html": "No Deferred Tax Liability is created as a result of the above."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 10,
+     "html": "Most common for private companies, divestitures, and distressed public companies."
+    },
+    {
+     "type": "p",
+     "html": "<b>Section 338(h)(10) Election:</b>"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 11,
+     "html": "Buyer acquires <i>all</i> asset and liabilities of the seller as well as off-balance sheet items."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 12,
+     "html": "Seller is taxed on the amount its assets have appreciated (what the buyer is paying for each one minus its book value) and also pays a capital gains tax on the proceeds."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 13,
+     "html": "The buyer receives a step-up tax basis for the newly acquired assets, and it can depreciate/amortize them for tax purposes."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 14,
+     "html": "No Deferred Tax Liability is created as a result of the above."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 15,
+     "html": "Most common for private companies, divestitures, and distressed public companies."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 16,
+     "html": "To compensate for the buyer’s favorable tax treatment, the buyer usually agrees to pay more than it would in an Asset Purchase."
+    }
+   ]
+  },
+  {
+   "label": "A59",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Would a seller prefer a stock purchase or an asset purchase? What about the buyer?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "A seller almost always prefers a stock purchase to avoid double taxation and to get rid of all its liabilities. The buyer almost always prefers an asset deal so it can be more careful about what it acquires and to get the tax benefit from being able to deduct depreciation and amortization of asset write-ups for tax purposes."
+    }
+   ]
+  },
+  {
+   "label": "A60",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "Explain what a contribution analysis is and why we might look at it in a merger model.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "A contribution analysis compares how much revenue, EBITDA, Pre-Tax Income, cash, and possibly other items the buyer and seller are “contributing” to estimate what the ownership of the combined company should be."
+    },
+    {
+     "type": "p",
+     "html": "For example, let’s say that the buyer is set to own 50% of the new company and the seller is set to own 50%. But the buyer has $100 million of revenue and the seller has $50 million of revenue – a contribution analysis would tell us that the buyer “should” own 66% instead because it’s contributing 2/3 of the combined revenue."
+    },
+    {
+     "type": "p",
+     "html": "It’s most common to look at this with <b>merger of equals</b> scenarios, and less common when the buyer is significantly larger than the seller."
+    }
+   ]
+  },
+  {
+   "label": "A61",
+   "section": "05",
+   "section_title": "Merger Models",
+   "question": "How do you account for transaction costs, financing fees, and miscellaneous expenses in a merger model?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "In the “old days” you used to capitalize these expenses and then amortize them; with the new accounting rules, you’re supposed to expense transaction and miscellaneous fees upfront, but capitalize the financing fees and amortize them over the life of the debt."
+    },
+    {
+     "type": "p",
+     "html": "Expensed transaction fees come out of Retained Earnings when you adjust the Balance Sheet, while capitalized financing fees appear as a new Asset on the Balance Sheet and are amortized each year according to the tenor of the debt."
+    }
+   ]
+  },
+  {
+   "label": "A62",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Tell me about all the different kinds of debt you could use in an LBO and the differences between everything.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Here’s a handy chart to explain all of this. Note that this chart does not cover every single feature or every single type of debt in the universe – just the most important ones, and what you’re likely to be asked about in finance interviews:"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "Debt Type",
+       "Revolver",
+       "Term Loan A",
+       "Term Loan B",
+       "Senior Notes",
+       "Subordinated Notes",
+       "Mezzanine"
+      ],
+      [
+       "Interest Rate:",
+       "Lowest",
+       "Low",
+       "Higher",
+       "Higher",
+       "Higher",
+       "Highest"
+      ],
+      [
+       "Floating / Fixed?",
+       "Floating",
+       "Floating",
+       "Floating",
+       "Fixed",
+       "Fixed",
+       "Fixed"
+      ],
+      [
+       "Cash Pay?",
+       "Yes",
+       "Yes",
+       "Yes",
+       "Yes",
+       "Yes",
+       "Cash / PIK"
+      ],
+      [
+       "Tenor:",
+       "3-5 years",
+       "4-6 years",
+       "4-8 years",
+       "7-10 years",
+       "8-10 years",
+       "8-12 years"
+      ],
+      [
+       "Amortization:",
+       "None",
+       "Straight Line",
+       "Minimal",
+       "Bullet",
+       "Bullet",
+       "Bullet"
+      ],
+      [
+       "Prepayment?",
+       "Yes",
+       "Yes",
+       "Yes",
+       "No",
+       "No",
+       "No"
+      ],
+      [
+       "Investors:",
+       "Conservative Banks",
+       "Conservative Banks",
+       "Conservative Banks",
+       "HFs, Merchant Banks, Mezzanine Funds",
+       "HFs, Merchant Banks, Mezzanine Funds",
+       "HFs, Merchant Banks, Mezzanine Funds"
+      ],
+      [
+       "Seniority",
+       "Senior Secured",
+       "Senior Secured",
+       "Senior Secured",
+       "Senior Unsecured",
+       "Senior Subordinated",
+       "Equity"
+      ],
+      [
+       "Secured?",
+       "Yes",
+       "Yes",
+       "Yes",
+       "Sometimes",
+       "No",
+       "No"
+      ],
+      [
+       "Call Protection?",
+       "No",
+       "Sometimes",
+       "Sometimes",
+       "Yes",
+       "Yes",
+       "Yes"
+      ],
+      [
+       "Covenants:",
+       "Maintenance",
+       "Maintenance",
+       "Maintenance",
+       "Incurrence",
+       "Incurrence",
+       "Incurrence"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "html": "“Tenor” is just the fancy word for “How many years will this loan be outstanding?”"
+    },
+    {
+     "type": "p",
+     "html": "Each type of debt is arranged in order of rising interest rates – so a revolver has the lowest interest rate, Term Loan A is slightly higher, B is slightly higher, Senior Notes are higher than Term Loan B, and so on."
+    },
+    {
+     "type": "p",
+     "html": "“Seniority” refers to the order of claims on a company’s assets in a bankruptcy – the Senior Secured holders are first in line, followed by Senior Unsecured, Senior Subordinated, and then Equity Investors."
+    },
+    {
+     "type": "p",
+     "html": "“Floating” or “Fixed” Interest Rates: A “floating” interest rate is tied to LIBOR. For example, L + 100 means that the interest rate of the loan is whatever LIBOR is at currently, plus 100 basis points (1.0%). A fixed interest rate, on the other hand, would be 11%. It doesn’t “float” with LIBOR or any other rate."
+    },
+    {
+     "type": "p",
+     "html": "Amortization: “straight line” means the company pays off the principal in equal installments each year, while “bullet” means that the entire principal is due at the end of the loan’s lifecycle. “Minimal” just means a low percentage of the principal each year, usually in the 1-5% range."
+    },
+    {
+     "type": "p",
+     "html": "Call Protection: Is the company prohibited from “calling back” – paying off or redeeming – the security for a certain period? This is beneficial for investors because they are guaranteed a certain number of interest payments."
+    }
+   ]
+  },
+  {
+   "label": "A63",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "How would an asset write-up or write-down affect an LBO model? / Walk me through how you adjust the Balance Sheet in an LBO model.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "All of this is very similar to what you would see in a merger model – you calculate Goodwill, Other Intangibles, and the rest of the write-ups in the same way, and then the Balance Sheet adjustments (e.g. subtracting cash, adding in capitalized financing fees, writing up assets, wiping out goodwill, adjusting the deferred tax assets / liabilities, adding in new debt, etc.) are almost the same."
+    },
+    {
+     "type": "p",
+     "html": "The key differences:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "In an LBO model you assume that the existing Shareholders’ Equity is wiped out and replaced by the equity the private equity firm contributes to buy the company; you may also add in Preferred Stock, Management Rollover, or Rollover from Option Holders to this number as well depending on what you’re assuming for transaction financing."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "In an LBO model you’ll usually be adding a lot more tranches of debt vs. what you would see in a merger model."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "In an LBO model you’re not combining two companies’ Balance Sheets."
+    }
+   ]
+  },
+  {
+   "label": "A64",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Normally we care about the IRR for the equity investors in an LBO – the PE firm that buys the company – but how do we calculate the IRR for the debt investors?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "For the debt investors, you need to calculate the interest and principal payments they receive from the company each year."
+    },
+    {
+     "type": "p",
+     "html": "Then you simply use the IRR function in Excel and start with the <b>negative</b> amount of the original debt for “Year 0,” assume that the interest and principal payments each year are your “cash flows” and then assume that the remaining debt balance in the final year is your “exit value.”"
+    },
+    {
+     "type": "p",
+     "html": "Most of the time, returns for debt investors will be lower than returns for the equity investors – but if the deal goes poorly or the PE firm can’t sell the company for a good price, the reverse could easily be true."
+    }
+   ]
+  },
+  {
+   "label": "A65",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Why might a private equity firm allot some of a company’s new equity in an LBO to a management option pool, and how would this affect the model?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "This is done for the same reason you have an Earnout in an M&amp;A deal: the PE firm wants to incentivize the management team and keep everyone on-board until they exit the investment."
+    },
+    {
+     "type": "p",
+     "html": "The difference is that there’s no technical limit on how much management might receive from such an option pool: if they hit it out of the park, maybe they’ll all become millionaires."
+    },
+    {
+     "type": "p",
+     "html": "In your LBO model, you would need to calculate a per-share purchase price when the PE firm exits the investment, and then calculate how much of the proceeds go to the management team based on the Treasury Stock Method."
+    },
+    {
+     "type": "p",
+     "html": "An option pool by itself would reduce the PE firm’s return, but this is offset by the fact that the company should perform better with this incentive in place."
+    }
+   ]
+  },
+  {
+   "label": "A66",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Why you would you use PIK (Payment In Kind) debt rather than other types of debt, and how does it affect the debt schedules and the other statements?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Unlike “normal” debt, a PIK loan does not require the borrower to make cash interest payments – instead, the interest just accrues to the loan principal, which keeps going up over time. A PIK “toggle” allows the company to choose whether to pay the interest in cash or have it accrue to the principal (these have disappeared since the credit crunch)."
+    },
+    {
+     "type": "p",
+     "html": "PIK is more risky than other forms of debt and carries with it a higher interest rate than traditional bank debt or high yield debt."
+    },
+    {
+     "type": "p",
+     "html": "Adding it to the debt schedules is similar to adding high-yield debt with a bullet maturity – except instead of assuming cash interest payments, you assume that the interest accrues to the principal instead."
+    },
+    {
+     "type": "p",
+     "html": "You should then include this interest on the Income Statement, but you need to add back any PIK interest on the Cash Flow Statement because it’s a non-cash expense."
+    }
+   ]
+  },
+  {
+   "label": "A67",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "What are some examples of incurrence covenants? Maintenance covenants?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "<b>Incurrence Covenants:</b>"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "Company cannot take on more than $2 billion of total debt."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "Proceeds from any asset sales must be earmarked to repay debt."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "Company cannot make acquisitions of over $200 million in size."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "Company cannot spend more than $100 million on CapEx each year."
+    },
+    {
+     "type": "p",
+     "html": "<b>Maintenance Covenants:</b>"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "Total Debt / EBITDA cannot exceed 3.0 x"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "Senior Debt / EBITDA cannot exceed 2.0 x"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 7,
+     "html": "(Total Cash Payable Debt + Capitalized Leases) / EBITDAR cannot exceed 4.0 x"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 8,
+     "html": "EBITDA / Interest Expense cannot fall below 5.0 x"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 9,
+     "html": "EBITDA / Cash Interest Expense cannot fall below 3.0 x"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 10,
+     "html": "(EBITDA – CapEx) / Interest Expense cannot fall below 2.0 x"
+    }
+   ]
+  },
+  {
+   "label": "A68",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Just like a normal M&A deal, you can structure an LBO either as a stock purchase or as an asset purchase. Can you also use Section 338(h)(10) election?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "In most cases, no – because one of the requirements for Section 338(h)(10) is that the <b>buyer</b> must be a C corporation. Most private equity firms are organized as LLCs or Limited Partnerships, and when they acquire companies in an LBO, they create an LLC shell company that “acquires” the company on paper."
+    }
+   ]
+  },
+  {
+   "label": "A69",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Walk me through how you calculate optional repayments on debt in an LBO model.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "First, note that you only look at optional repayments for Revolvers and Term Loans – high-yield debt doesn’t have a prepayment option, so effectively it’s always $0."
+    },
+    {
+     "type": "p",
+     "html": "First, you check how much cash flow you have available based on your Beginning Cash Balance, Minimum Cash Balance, Cash Flow Available for Debt Repayment from the Cash Flow Statement, and how much you use to make Mandatory Debt Repayments."
+    },
+    {
+     "type": "p",
+     "html": "Then, if you’ve used your Revolver at all you pay off the maximum amount that you can with the cash flow you have available."
+    },
+    {
+     "type": "p",
+     "html": "Next, for Term Loan A you assume that you pay off the maximum you can, taking into account that you’ve lost any cash flow you used to pay down the Revolver. You also need to take into account that you might have paid off some of Term Loan A’s principal as part of the Mandatory Repayments."
+    },
+    {
+     "type": "p",
+     "html": "Finally, you do the same thing for Term Loan B, subtracting from the “cash flow available for debt repayment” what you’ve already used up on the Revolver and Term Loan A. And just like Term Loan A, you need to take into account any Mandatory Repayments you’ve made so that you don’t pay off <b>more</b> than the entire Term Loan B balance."
+    },
+    {
+     "type": "p",
+     "html": "The formulas here get very messy and depend on how your model is set up, but this is the basic idea for optional debt repayments."
+    }
+   ]
+  },
+  {
+   "label": "A70",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Explain how a Revolver is used in an LBO model.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "You use a Revolver when the cash required for your Mandatory Debt Repayments exceeds the cash flow you have available to repay them."
+    },
+    {
+     "type": "p",
+     "html": "The formula is: Revolver Borrowing = MAX(0, Total Mandatory Debt Repayment – Cash Flow Available to Repay Debt)."
+    },
+    {
+     "type": "p",
+     "html": "The Revolver starts off “undrawn,” meaning that you don’t actually borrow money and don’t accrue a balance unless you need it – similar to how credit cards work."
+    },
+    {
+     "type": "p",
+     "html": "You add any required Revolver Borrowing to your running total for cash flow available for debt repayment before you calculate Mandatory and Optional Debt Repayments."
+    },
+    {
+     "type": "p",
+     "html": "Within the debt repayments themselves, you assume that any Revolver Borrowing from previous years is paid off first with excess cash flow before you pay off any Term Loans."
+    }
+   ]
+  },
+  {
+   "label": "A71",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "How would you adjust the Income Statement in an LBO model?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "The most common adjustments:"
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 1,
+     "html": "<b>Cost Savings</b> – Often you assume the PE firm cuts costs by laying off employees, which could affect COGS, Operating Expenses, or both."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 2,
+     "html": "<b>New Depreciation Expense</b> – This comes from any PP&amp;E write-ups in the transaction."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 3,
+     "html": "<b>New Amortization Expense</b> – This includes both the amortization from written- up intangibles and from capitalized financing fees."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 4,
+     "html": "<b>Interest Expense on LBO Debt</b> – You need to include both cash and PIK interest here."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 5,
+     "html": "<b>Sponsor Management Fees</b> – Sometimes PE firms charge a “management fee” to a company to account for the time and effort they spend managing it."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 6,
+     "html": "<b>Common Stock Dividend</b> – Although private companies don’t pay dividends to shareholders, they <i>could</i> pay out a dividend recap to the PE investors."
+    },
+    {
+     "type": "li",
+     "kind": "bullet",
+     "n": 7,
+     "html": "<b>Preferred Stock Dividend</b> – If Preferred Stock is used as a form of financing in the transaction, you need to account for Preferred Stock Dividends on the Income Statement."
+    },
+    {
+     "type": "p",
+     "html": "Cost Savings and new Depreciation / Amortization hit the Operating Income line; Interest Expense and Sponsor Management Fees hit Pre-Tax Income; and you need to subtract the dividend items from your Net Income number."
+    }
+   ]
+  },
+  {
+   "label": "A72",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "In an LBO model, is it possible for debt investors to get a higher return than the PE firm? What does it tell us about the company we’re modeling?",
+   "answer": [
+    {
+     "type": "p",
+     "html": "Yes, and it happens more commonly than you’d think. Remember, high-yield debt investors often get interest rates of 10-15% or more – which effectively guarantees an IRR in that range for them."
+    },
+    {
+     "type": "p",
+     "html": "So no matter what happens to the company or the market, that debt gets repaid and the debt investors get the interest payments."
+    },
+    {
+     "type": "p",
+     "html": "But let’s say that the median EBITDA multiples contract, or that the company fails to grow or actually shrinks – in these cases the PE firm could easily get an IRR below what the debt investors get."
+    }
+   ]
+  },
+  {
+   "label": "A73",
+   "section": "06",
+   "section_title": "Leveraged Buyouts",
+   "question": "Most of the time, increased leverage means an increased IRR. Explain how increasing the leverage could reduce the IRR.",
+   "answer": [
+    {
+     "type": "p",
+     "html": "This scenario is admittedly rare, but it could happen if the increase leverage increases interest payments or debt repayments to very high levels, preventing the company from using its cash flow for other purposes."
+    },
+    {
+     "type": "p",
+     "html": "Sometimes in LBO models, increasing the leverage increases the IRR up to a certain point – but then after that the IRR starts falling as the interest payments or principal repayments become “too big.”"
+    },
+    {
+     "type": "p",
+     "html": "For this scenario to happen you would need a “perfect storm” of:"
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 1,
+     "html": "Relative lack of cash flow / EBITDA growth."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 2,
+     "html": "High interest payments and principal repayments relative to cash flow."
+    },
+    {
+     "type": "li",
+     "kind": "num",
+     "n": 3,
+     "html": "Relatively high purchase premium or purchase multiple to make it more difficult to get a high IRR in the first place."
+    }
+   ]
+  }
+ ]
+}

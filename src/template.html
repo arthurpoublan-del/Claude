@@ -48,6 +48,7 @@
   .set:active .set-name { text-decoration: underline; text-underline-offset: 5px; }
   .set-name { display: block; margin: 7px 0 10px; font: 600 27px/1.1 var(--serif); letter-spacing: -0.01em; }
   .set-meta { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; color: var(--ink-2); }
+  .set-adv { display: block; margin-top: 10px; font-size: 12.5px; color: var(--ink-3); }
   .meter { display: block; height: 2px; margin: 16px 0 0; background: var(--rule); }
   .meter i { display: block; height: 100%; background: var(--ink); }
   .note { margin: 22px 0 0; font-size: 13px; line-height: 1.55; color: var(--ink-2); }
@@ -99,6 +100,11 @@
   .box .tag { position: absolute; top: -10px; left: 14px; padding: 4px 8px 3px; background: var(--ink); color: var(--paper); font: 600 10px/1.2 var(--sans); letter-spacing: 0.15em; text-transform: uppercase; }
   .why { margin-top: 16px; padding: 16px 16px 16px; background: var(--fill); }
   .why .eyebrow { display: block; margin-bottom: 8px; }
+  .box ul, .box ol { margin: 0 0 10px; padding-left: 22px; }
+  .box li { margin: 0 0 6px; padding-left: 2px; }
+  .box li::marker { color: var(--ink); }
+  .box ol li::marker { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .box > :last-child { margin-bottom: 0; }
   .box p, .why p, .push-a p { margin: 0 0 10px; }
   .box p:last-child, .why p:last-child, .push-a p:last-child { margin-bottom: 0; }
   .box b { font-weight: 650; }
@@ -218,11 +224,17 @@
     { id: 'merger', name: 'Merger Models', eyebrow: 'Section 05 · also in the Bible', blurb: 'Merger model concepts and drills', intro: SEC['05'].intro, secs: ['05'] }
   ];
   SETS.forEach(function (s) {
-    s.qs = QS.filter(function (q) { return s.secs.indexOf(q.section) >= 0; });
+    s.qs = QS.filter(function (q) { return !q.adv && s.secs.indexOf(q.section) >= 0; });      // the PDF's questions
+    s.advN = QS.filter(function (q) { return q.adv && s.secs.indexOf(q.section) >= 0; }).length;
+    var ordered = [];                                  // each section's own questions, then its advanced ones
+    s.secs.forEach(function (id) {
+      QS.forEach(function (q) { if (q.section === id && !q.adv) ordered.push(q); });
+      QS.forEach(function (q) { if (q.section === id && q.adv) ordered.push(q); });
+    });
     var rows = [];
-    s.qs.forEach(function (q) {
+    ordered.forEach(function (q) {
       var last = rows[rows.length - 1];
-      if (!last || last.sec !== q.section || last.group !== q.group) rows.push({ key: rows.length, sec: q.section, group: q.group, qs: [], first: !last || last.sec !== q.section });
+      if (!last || last.sec !== q.section || last.group !== q.group || !!last.adv !== !!q.adv) rows.push({ key: rows.length, sec: q.section, group: q.group, adv: !!q.adv, qs: [], first: !last || last.sec !== q.section || !!last.adv !== !!q.adv });
       rows[rows.length - 1].qs.push(q);
     });
     s.rows = rows;
@@ -243,7 +255,8 @@
   function plainText(bs) {
     return bs.map(function (b) {
       if (b.type === 'table') return b.rows.map(function (r) { return r.join(' | '); }).join('\n');
-      var d = document.createElement('div'); d.innerHTML = b.html; return d.textContent;
+      var d = document.createElement('div'); d.innerHTML = b.html;
+      return (b.type === 'li' ? (b.kind === 'num' ? b.n + '. ' : '- ') : '') + d.textContent;
     }).join('\n');
   }
   function markPrompt(ref, mine) {
@@ -254,7 +267,7 @@
       '- Mark substance, never wording. Different phrasing, order, shorthand or a spoken style is fine. A correct route that the model answer does not use is fully correct.',
       '- Only call something wrong if it is actually wrong: a wrong number, sign, direction, statement or concept. Missing a point is “missed”, not “wrong”. If a figure is wrong, say what it should be.',
       '- Be honest and calibrated. Do not flatter. If the answer is empty, off topic or only guesses, say so.',
-      '- Treat the model answer and the explanation below as the source of truth for what a strong answer contains.',
+      '- Treat the model answer (and any explanation below) as the source of truth for what a strong answer contains. It may use US wording or dollars: judge the substance, not the jurisdiction.',
       ref.context ? '' : null,
       ref.context ? 'This is a follow-up the interviewer asked after this question: ' + ref.context : null,
       '',
@@ -331,14 +344,14 @@
     ['home', 'setup', 'drill', 'done'].forEach(function (n) { $('s-' + n).hidden = n !== id; });
     window.scrollTo(0, 0);
   }
-  function range(qs) { return 'Q' + qs[0].n + '–Q' + qs[qs.length - 1].n; }
+  function range(qs) { return qs[0].label + '–' + qs[qs.length - 1].label; }
   function plural(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
   function gotCount(qs) { return qs.filter(function (q) { return PROG[q.n] === 'g'; }).length; }
   function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
 
   /* ---------- home ---------- */
   function renderHome() {
-    $('homeLede').textContent = QS.length + ' questions with interview-ready answers, the reasoning behind each one, and the follow-ups an interviewer is likely to push with.';
+    $('homeLede').textContent = QS.filter(function (q) { return !q.adv; }).length + ' questions with interview-ready answers, the reasoning behind each one, and the follow-ups an interviewer is likely to push with.';
     $('homeNote').textContent = 'All calculations assume a 25% tax rate unless stated otherwise.';
     var box = $('sets'); box.innerHTML = '';
     SETS.forEach(function (s) {
@@ -347,7 +360,8 @@
       b.className = 'set';
       b.innerHTML = '<span class="eyebrow">' + esc(s.eyebrow) + '</span><span class="set-name">' + esc(s.name) + '</span>' +
         '<span class="set-meta"><span>' + esc(range(s.qs)) + ' · ' + plural(s.qs.length, 'question') + '</span><span class="tnum">' + got + ' / ' + s.qs.length + ' got</span></span>' +
-        '<span class="meter"><i style="width:' + pct + '%"></i></span>';
+        '<span class="meter"><i style="width:' + pct + '%"></i></span>' +
+        (s.advN ? '<span class="set-adv">+ ' + plural(s.advN, 'advanced question') + ' you can tick on</span>' : '');
       b.addEventListener('click', function () { openSet(s); });
       box.appendChild(b);
     });
@@ -362,7 +376,7 @@
   /* ---------- setup ---------- */
   var cur = { set: null, sel: {}, order: 'shuffle', show: 'all' };
   function openSet(s) {
-    cur.set = s; cur.sel = {}; s.rows.forEach(function (r) { cur.sel[r.key] = true; });
+    cur.set = s; cur.sel = {}; s.rows.forEach(function (r) { cur.sel[r.key] = !r.adv; });      // advanced rows are opt-in
     renderSetup(); show('setup');
   }
   function pool() {
@@ -376,15 +390,15 @@
     $('setupEyebrow').textContent = s.eyebrow; $('setupTitle').textContent = s.name; $('setupIntro').textContent = s.intro;
     var box = $('rows'); box.innerHTML = '';
     s.rows.forEach(function (r) {
-      var sec = SEC[r.sec], title = r.group || sec.title, got = gotCount(r.qs);
+      var sec = SEC[r.sec], title = r.adv ? sec.title + ', advanced' : (r.group || sec.title), got = gotCount(r.qs), intro = r.adv ? sec.adv_intro : sec.intro;
       var row = document.createElement('div'); row.className = 'row';
       var m = document.createElement('button'); m.className = 'row-main'; m.setAttribute('role', 'checkbox'); m.setAttribute('aria-checked', cur.sel[r.key] ? 'true' : 'false');
       m.innerHTML = '<span class="check"></span><span class="row-num">' + esc(r.sec) + '</span><span><span class="row-title">' + esc(title) + '</span><span class="row-sub tnum">' + esc(range(r.qs)) + ' · ' + plural(r.qs.length, 'question') + ' · ' + got + ' got</span></span>';
       m.addEventListener('click', function () { cur.sel[r.key] = !cur.sel[r.key]; renderSetup(); });
       row.appendChild(m);
-      if (r.first && sec.intro) {
+      if (r.first && intro) {
         var ab = document.createElement('button'); ab.className = 'about'; ab.textContent = 'About this section'; ab.setAttribute('aria-expanded', 'false');
-        var tx = document.createElement('p'); tx.className = 'about-text'; tx.textContent = sec.intro; tx.hidden = true;
+        var tx = document.createElement('p'); tx.className = 'about-text'; tx.textContent = intro; tx.hidden = true;
         ab.addEventListener('click', function () { tx.hidden = !tx.hidden; ab.setAttribute('aria-expanded', String(!tx.hidden)); ab.textContent = tx.hidden ? 'About this section' : 'Hide'; });
         row.appendChild(ab); row.appendChild(tx);
       }
@@ -422,7 +436,19 @@
     rows.slice(1).forEach(function (r) { h += '<tr><th scope="row">' + esc(r[0]) + '</th>' + r.slice(1).map(function (c) { return '<td>' + esc(c) + '</td>'; }).join('') + '</tr>'; });
     return h + '</tbody></table></div>';
   }
-  function blocks(bs) { return bs.map(function (b) { return b.type === 'p' ? '<p>' + nb(b.html) + '</p>' : table(b.rows); }).join(''); }
+  function blocks(bs) {
+    var h = '', i = 0;
+    while (i < bs.length) {
+      var b = bs[i];
+      if (b.type === 'li') {                                   // a run of list items becomes one list
+        var tag = b.kind === 'num' ? 'ol' : 'ul', items = '';
+        while (i < bs.length && bs[i].type === 'li' && bs[i].kind === b.kind) { items += '<li' + (tag === 'ol' ? ' value="' + bs[i].n + '"' : '') + '>' + nb(bs[i].html) + '</li>'; i++; }
+        h += '<' + tag + '>' + items + '</' + tag + '>'; continue;
+      }
+      h += b.type === 'p' ? '<p>' + nb(b.html) + '</p>' : table(b.rows); i++;
+    }
+    return h;
+  }
   function add(html) {
     var d = document.createElement('div'); d.innerHTML = html; var el = d.firstElementChild;
     $('thread').appendChild(el); return el;
@@ -443,8 +469,8 @@
     $('fill').style.width = (run.i / run.ids.length * 100) + '%';
     if (running) { running.abort(); running = null; }
     var t = $('thread'); t.innerHTML = ''; t.scrollTop = 0;
-    var where = sec.id + ' · ' + sec.title + (q.group ? ' · ' + q.group : '');
-    add('<div class="blk"><div class="eyebrow where">Q' + q.n + ' · ' + esc(where) + '</div><h3 class="q-text" style="margin:0">' + esc(nb(q.q_text)) + '</h3>' +
+    var where = sec.id + ' · ' + sec.title + (q.adv ? ' · Advanced' : q.group ? ' · ' + q.group : '');
+    add('<div class="blk"><div class="eyebrow where">' + q.label + ' · ' + esc(where) + '</div><h3 class="q-text" style="margin:0">' + esc(nb(q.q_text)) + '</h3>' +
       (q.reported ? '<p class="reported"><span class="eyebrow">Reported</span>' + esc(q.reported) + '</p>' : '') +
       (sample ? '' : '<p class="say">Say your answer out loud, then check it.</p>') + '<div class="mine-slot"></div></div>');
     var slot = t.querySelector('.mine-slot');
@@ -465,7 +491,7 @@
     if (run.stage === 'q') {
       var say = document.querySelector('.say'); if (say) say.remove();
       el = add('<div class="blk"><div class="box"><span class="tag">Answer</span>' + blocks(q.answer) + '</div>' +
-        '<div class="why"><span class="eyebrow">Why it’s right</span>' + blocks(q.why) + '</div></div>');
+        (q.why.length ? '<div class="why"><span class="eyebrow">Why it’s right</span>' + blocks(q.why) + '</div>' : '') + '</div>');
       run.stage = 'a';
     } else if (run.stage === 'a' || run.stage === 'pa') {
       run.p++;
@@ -502,7 +528,7 @@
     $('doneEyebrow').textContent = cur.set.name + ' · done';
     $('score').innerHTML = got + '<small> / ' + ids.length + '</small>';
     $('tally').innerHTML = '<span>' + got + ' got</span><span>' + miss.length + ' missed</span>' + (skip ? '<span>' + skip + ' skipped</span>' : '');
-    $('missList').innerHTML = miss.map(function (n) { return '<li><span>Q' + n + '</span>' + esc(BY[n].q_text) + '</li>'; }).join('');
+    $('missList').innerHTML = miss.map(function (n) { return '<li><span>' + BY[n].label + '</span>' + esc(BY[n].q_text) + '</li>'; }).join('');
     $('missList').hidden = !miss.length;
     run.miss = miss; $('again').hidden = !miss.length;
     show('done');

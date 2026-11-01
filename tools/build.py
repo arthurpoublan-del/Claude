@@ -3,6 +3,8 @@
 
     python3 -I tools/parse_pdf.py   <Moelis_First_Round_Technicals.pdf> parsed.json
     python3 -I tools/verify_text.py <same pdf> parsed.json        # word-for-word check against the PDF
+    python3 -I tools/parse_bible_docx.py <400-Question-IB-Bible.docx> src/advanced.json   # the optional advanced questions
+    python3 -I tools/verify_bible_docx.py <same docx> src/advanced.json
     python3 -I tools/build.py       [src/questions.json] [artifact.html]
 
 The artifact variant is the page content only (title, meta, style, body) with no embedded binaries,
@@ -19,6 +21,22 @@ for q in data['questions']:                      # compact, app-facing keys
     q.pop('page', None)
 for s in data['sections']:
     s.pop('page', None)
+
+for q in data['questions']:
+    q['label'] = 'Q%d' % q['n']
+
+# The Bible's advanced questions (src/advanced.json, from tools/parse_bible_docx.py). They get their own ids
+# (1001+) and A1.. labels so progress never clashes with the PDF's Q numbers. The book has no
+# "why it's right" or follow-ups for them, so those stay empty.
+adv_path = os.path.join(root, 'src', 'advanced.json')
+if os.path.exists(adv_path):
+    adv = json.load(open(adv_path, encoding='utf-8'))
+    by_id = {s['id']: s for s in data['sections']}
+    for s in adv['sections']:
+        by_id[s['id']]['adv_intro'] = s['intro']
+    for i, a in enumerate(adv['questions']):
+        data['questions'].append({'n': 1001 + i, 'label': a['label'], 'adv': True, 'section': a['section'], 'group': None,
+                                  'q_text': a['question'], 'reported': None, 'answer': a['answer'], 'why': [], 'push': []})
 
 template = open(os.path.join(root, 'src', 'template.html'), encoding='utf-8').read()
 marker = '/*__DATA__*/null'
